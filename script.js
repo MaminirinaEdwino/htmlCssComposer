@@ -1,7 +1,7 @@
 const htmlInput = document.getElementById('htmlInput')
 const renderZone = document.getElementById('renderZone')
 const targetName = document.getElementById('targetName')
-
+let pressepapier = null
 let elementSelectionne = null
 
 htmlInput.addEventListener('input', () => {
@@ -25,292 +25,69 @@ htmlInput.addEventListener('input', () => {
 
 })
 
-document.getElementById('textColor').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.color = e.target.value
-        synchroniser()
-    }
-})
 
-document.getElementById('fontSize').addEventListener('input', (e) => {
+// changement de valuer sans unité comme px ou rem
+function set_style_no_unit(id) {
     if (elementSelectionne) {
-        elementSelectionne.style.fontSize = e.target.value + "px"
-        synchroniser()
+        id == "textColor" ? elementSelectionne.style.color = document.getElementById(id).value : "";
+        id == "bgColor" ? elementSelectionne.style.backgroundColor = document.getElementById(id).value : "";
+        id == "fontSize" ? elementSelectionne.style.fontSize = document.getElementById(id).value + "px" : "";
+        // width & height section
+        id == "width" ? elementSelectionne.style.width = document.getElementById(id).value + document.getElementById('widthunit').value : ""
+        id == "spec_width" && document.getElementById(id).value != "" ? elementSelectionne.style.width = document.getElementById(id).value : ""
+        id == "height" ? elementSelectionne.style.height = document.getElementById(id).value + document.getElementById('heightunit').value : ""
+        id == "minw" ? elementSelectionne.style.minWidth = document.getElementById(id).value + document.getElementById('widthunit').value : "";
+        id == "maxw" ? elementSelectionne.style.maxWidth = document.getElementById(id).value + document.getElementById('widthunit').value : "";
+        id == "minh" ? elementSelectionne.style.minHeight = document.getElementById(id).value + document.getElementById('heightunit').value : "";
+        id == "maxh" ? elementSelectionne.style.maxHeight = document.getElementById(id).value + document.getElementById('heightunit').value : "";
+        // Display section
+        id == "display" ? elementSelectionne.style.display = document.getElementById(id).value : "";
+        // flex section
+        id == "flexdirection" ? elementSelectionne.style.flexDirection = document.getElementById(id).value : "";
+        id == "justify-content" ? elementSelectionne.style.justifyContent = document.getElementById(id).value : "";
+        id == "align-items" ? elementSelectionne.style.alignItems = document.getElementById(id).value : "";
+        id == "gap" ? elementSelectionne.style.gap = document.getElementById(id).value + "px" : "";
+        // margin section
+        id == "margin" ? elementSelectionne.style.margin = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
+        id == "marginl" ? elementSelectionne.style.marginLeft = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
+        id == "margint" ? elementSelectionne.style.marginTop = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
+        id == "marginr" ? elementSelectionne.style.marginRight = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
+        id == "marginb" ? elementSelectionne.style.marginBottom = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
+        // padding section
+        id == "padding" ? elementSelectionne.style.padding = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
+        id == "paddingl" ? elementSelectionne.style.paddingLeft = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
+        id == "paddingt" ? elementSelectionne.style.paddingTop = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
+        id == "paddingr" ? elementSelectionne.style.paddingRight = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
+        id == "paddingb" ? elementSelectionne.style.paddingBottom = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
+        // box sizing section
+        id == "boxsizing" ? elementSelectionne.style.boxSizing = document.getElementById(id).value : "";
+        // border section
+        id == "borderRadius" ? elementSelectionne.style.borderRadius = document.getElementById(id).value + document.getElementById('borderUnit').value : "";
+        id == "bordersize" ? elementSelectionne.style.borderWidth = document.getElementById(id).value + document.getElementById('borderUnit').value : "";
+        id == "bordertype" ? elementSelectionne.style.borderStyle = document.getElementById(id).value : "";
+        id == "bordercolor" ? elementSelectionne.style.borderColor = document.getElementById(id).value : "";
+        // document.getElementById(id).style.border = "1px solid black"
+        // position section
+        id == "position" ? elementSelectionne.style.position = document.getElementById(id).value + document.getElementById('posUnit').value: "";
+        id == "posLeft" ? elementSelectionne.style.left = document.getElementById(id).value + document.getElementById('posUnit').value : "";
+        id == "posTop" ? elementSelectionne.style.top = document.getElementById(id).value + document.getElementById('posUnit').value: "";
+        id == "posRight" ? elementSelectionne.style.right = document.getElementById(id).value + document.getElementById('posUnit').value: "";
+        id == "posBottom" ? elementSelectionne.style.bottom = document.getElementById(id).value + document.getElementById('posUnit').value : "";
+        // overflow section
+        id == "overflowx" ? elementSelectionne.style.overflowX = document.getElementById(id).value : "";
+        id == "overflowy" ? elementSelectionne.style.overflowY = document.getElementById(id).value : "";
+        // console.log(document.getElementById(id));
     }
-})
-
-document.getElementById('bgColor').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.backgroundColor
-        elementSelectionne.style.backgroundColor = e.target.value
-        synchroniser()
-    }
-})
-
-// sizing
-document.getElementById('widthunit').addEventListener('input', (e) => { if (elementSelectionne) { synchroniser(); console.log(e.target.value);
- } })
-document.getElementById('heightunit').addEventListener('input', (e) => { if (elementSelectionne) { synchroniser(); console.log("teste");
- } })
-
-
-document.getElementById('width').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.width = e.target.value + document.getElementById('widthunit').value
-        synchroniser()
-    }
-})
-
-
-document.getElementById('height').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.height
-        elementSelectionne.style.height = e.target.value + document.getElementById('heightunit').value
-        synchroniser()
-    }
-})
-
-document.getElementById('minw').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.minWidth = e.target.value + document.getElementById('widthunit').value
-        synchroniser()
-    }
-})
-document.getElementById('maxw').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.maxWidth = e.target.value + document.getElementById('widthunit').value
-        synchroniser()
-    }
-})
-document.getElementById('minh').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.minHeight = e.target.value + document.getElementById('heightunit').value
-        synchroniser()
-    }
-})
-document.getElementById('maxh').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.maxHeight = e.target.value + document.getElementById('heightunit').value
-        synchroniser()
-    }
-})
-
-//display
-document.getElementById('display').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        document.getElementById('bgColor').style.maxHeight
-        elementSelectionne.style.display = e.target.value
-        synchroniser()
-    }
-})
-// flex
-document.getElementById('flexdirection').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.flexDirection
-        elementSelectionne.style.flexDirection = e.target.value
-        synchroniser()
-    }
-})
-document.getElementById('justify-content').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.justifyContent
-        elementSelectionne.style.justifyContent = e.target.value
-        synchroniser()
-    }
-})
-document.getElementById('align-items').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        document.getElementById('bgColor').style.alignItems
-        elementSelectionne.style.alignItems = e.target.value
-        synchroniser()
-    }
-})
-
-
-
-document.getElementById('gap').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.flexDirection
-        elementSelectionne.style.gap = e.target.value + "px"
-        synchroniser()
-    }
-})
-//margin section
-function setmargin(){
-    console.log("lgo");
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.flexDirection
-        elementSelectionne.style.margin = document.getElementById('margin').value + document.getElementById('marginUnit').value
-        console.log("lgo");
-        
-        synchroniser()
-    }
+    synchroniser();
 }
 
-document.getElementById('marginUnit').addEventListener('input', (e) => { elementSelectionne && synchroniser(); });
-document.getElementById('marginl').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.marginLeft = e.target.value + document.getElementById('marginUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('margint').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.marginTop = e.target.value + document.getElementById('marginUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('marginr').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.marginRight = e.target.value + document.getElementById('marginUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('marginb').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.marginBottom = e.target.value + document.getElementById('marginUnit').value
-        synchroniser()
-    }
-})
 
 
-// padding section
-document.getElementById('padding').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.boxSizing
-        elementSelectionne.style.padding = e.target.value + document.getElementById('paddingUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('paddingl').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.paddingLeft = e.target.value + document.getElementById('paddingUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('paddingt').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.paddingTop = e.target.value + document.getElementById('paddingUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('paddingr').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.paddingRight = e.target.value + document.getElementById('paddingUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('paddingb').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.paddingBottom = e.target.value + document.getElementById('paddingUnit').value
-        synchroniser()
-    }
-})
-
-document.getElementById('paddingUnit').addEventListener('input', (e) => { elementSelectionne && synchroniser(); });
-
-document.getElementById('boxsizing').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.boxSizing = e.target.value
-        synchroniser()
-    }
-})
-
-// border part
-document.getElementById('borderUnit').addEventListener('input', (e) => { elementSelectionne && synchroniser(); });
-document.getElementById('borderRadius').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.borderRadius
-        elementSelectionne.style.borderRadius = e.target.value + document.getElementById('borderUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('bordersize').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.borderRadius
-        elementSelectionne.style.borderWidth = e.target.value + document.getElementById('borderUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('bordercolor').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        document.getElementById('bgColor').style.borderColor
-        elementSelectionne.style.borderColor = e.target.value
-        document.getElementById('colorcode').innerText = document.getElementById('bordercolor').value
-        synchroniser()
-    }
-})
-document.getElementById('bordertype').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.borderStyle
-        elementSelectionne.style.borderStyle = e.target.value
-        console.log('tt')
-        synchroniser()
-    }
-})
-
-
-document.getElementById('position').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.position
-        elementSelectionne.style.position = e.target.value
-        synchroniser()
-    }
-})
-document.getElementById('posLeft').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.position
-        elementSelectionne.style.left = e.target.value + document.getElementById('posUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('posTop').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.
-        elementSelectionne.style.top = e.target.value + document.getElementById('posUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('posRight').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.righ
-        elementSelectionne.style.right = e.target.value + document.getElementById('posUnit').value
-        synchroniser()
-    }
-})
-document.getElementById('posBottom').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        // document.getElementById('bgColor').style.overflowX
-        elementSelectionne.style.bottom = e.target.value + document.getElementById('posUnit').value
-        synchroniser()
-    }
-})
-
-document.getElementById('posUnit').addEventListener('input', (e) => { elementSelectionne && synchroniser() })
-
-// Overflow
-
-document.getElementById('overflowx').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.overflowX = e.target.value
-    }
-})
-document.getElementById('overflowy').addEventListener('input', (e) => {
-    if (elementSelectionne) {
-        elementSelectionne.style.overflowY = e.target.value
-    }
-})
-
-
-// document.getElementById('getparent').addEventListener('click', (e) => {
-//     console.log("parent");
-    
-// })
-function getparent(){
+function getparent() {
     console.log("parent");
     if (elementSelectionne) {
         // document.getElementById('bgColor').style.position
-               
+
         if (elementSelectionne && elementSelectionne.parent != renderZone) {
             let parent = elementSelectionne.parentElement
             elementSelectionne = parent
@@ -319,13 +96,11 @@ function getparent(){
     }
 }
 
-
-
 function synchroniser() {
     targetName.innerText = "Cible : <" + elementSelectionne.tagName.toLocaleLowerCase() + ">"
     htmlInput.value = renderZone.innerHTML
 }
-let pressepapier = null
+
 // let clone = null
 function copyStyle() {
     pressepapier = elementSelectionne.getAttribute('style')
