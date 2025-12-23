@@ -29,9 +29,11 @@ htmlInput.addEventListener('input', () => {
 // changement de valuer sans unité comme px ou rem
 function set_style_no_unit(id) {
     if (elementSelectionne) {
+        // text section
         id == "textColor" ? elementSelectionne.style.color = document.getElementById(id).value : "";
         id == "bgColor" ? elementSelectionne.style.backgroundColor = document.getElementById(id).value : "";
         id == "fontSize" ? elementSelectionne.style.fontSize = document.getElementById(id).value + "px" : "";
+        id == "textAlign" ? elementSelectionne.style.textAlign = document.getElementById(id).value : ""
         // width & height section
         id == "width" ? elementSelectionne.style.width = document.getElementById(id).value + document.getElementById('widthunit').value : ""
         id == "spec_width" && document.getElementById(id).value != "" ? elementSelectionne.style.width = document.getElementById(id).value : ""
@@ -47,6 +49,7 @@ function set_style_no_unit(id) {
         id == "justify-content" ? elementSelectionne.style.justifyContent = document.getElementById(id).value : "";
         id == "align-items" ? elementSelectionne.style.alignItems = document.getElementById(id).value : "";
         id == "gap" ? elementSelectionne.style.gap = document.getElementById(id).value + "px" : "";
+        id == "flexwrap" ? elementSelectionne.style.flexWrap = document.getElementById(id).value : "";
         // margin section
         id == "margin" ? elementSelectionne.style.margin = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
         id == "marginl" ? elementSelectionne.style.marginLeft = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
@@ -66,12 +69,12 @@ function set_style_no_unit(id) {
         id == "bordersize" ? elementSelectionne.style.borderWidth = document.getElementById(id).value + document.getElementById('borderUnit').value : "";
         id == "bordertype" ? elementSelectionne.style.borderStyle = document.getElementById(id).value : "";
         id == "bordercolor" ? elementSelectionne.style.borderColor = document.getElementById(id).value : "";
-        // document.getElementById(id).style.border = "1px solid black"
+        // document.getElementById(id).style.flexWrap
         // position section
-        id == "position" ? elementSelectionne.style.position = document.getElementById(id).value + document.getElementById('posUnit').value: "";
+        id == "position" ? elementSelectionne.style.position = document.getElementById(id).value + document.getElementById('posUnit').value : "";
         id == "posLeft" ? elementSelectionne.style.left = document.getElementById(id).value + document.getElementById('posUnit').value : "";
-        id == "posTop" ? elementSelectionne.style.top = document.getElementById(id).value + document.getElementById('posUnit').value: "";
-        id == "posRight" ? elementSelectionne.style.right = document.getElementById(id).value + document.getElementById('posUnit').value: "";
+        id == "posTop" ? elementSelectionne.style.top = document.getElementById(id).value + document.getElementById('posUnit').value : "";
+        id == "posRight" ? elementSelectionne.style.right = document.getElementById(id).value + document.getElementById('posUnit').value : "";
         id == "posBottom" ? elementSelectionne.style.bottom = document.getElementById(id).value + document.getElementById('posUnit').value : "";
         // overflow section
         id == "overflowx" ? elementSelectionne.style.overflowX = document.getElementById(id).value : "";

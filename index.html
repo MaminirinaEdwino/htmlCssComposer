@@ -49,6 +49,16 @@
                     <label for="">Bg</label>
                     <input type="color" name="" id="bgColor" oninput="set_style_no_unit('bgColor')">
                 </div>
+                <div><label for="">Text align</label>
+                    <select name="" id="textAlign" oninput="set_style_no_unit('textAlign')">
+                        <option value="center">center</option>
+                        <option value="justify">justify</option>
+                        <option value="end">end</option>
+                        <option value="start">start</option>
+                        <option value="left">left</option>
+                        <option value="right">right</option>
+                    </select>
+                </div>
             </div>
             <!-- Border -->
             <details
@@ -230,6 +240,13 @@
                         <select name="" id="flexdirection" style="padding: 5px;" oninput="set_style_no_unit('flexdirection')">
                             <option value="row">Horizontal</option>
                             <option value="column">Vertical</option>
+                        </select>
+                    </div>
+                    <div><label for="">Flex Wrap</label>
+                        <select name="" id="flexwrap" oninput="set_style_no_unit('flexwrap')">
+                            <option value="nowrap">nowrap</option>
+                            <option value="wrap">wrap</option>
+                            <option value="wrap-reverse">wrap-reverse</option>
                         </select>
                     </div>
                     <div style="display: flex; flex-direction: column; padding: 5px;">

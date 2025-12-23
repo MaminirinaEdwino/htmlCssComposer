@@ -12,5 +12,7 @@ width: 300px;
 box-sizing: border-box;
 justify-content: space-evenly;
 align-items:normal;
+flex-wrap: wrap-reverse;
+text-align: center;
 height: 300px;
 }
