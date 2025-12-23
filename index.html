@@ -15,7 +15,316 @@
 </head>
 
 <body>
-    <div class="studio">
+    <div
+        style="position: fixed; right: 0rem; top: 0rem; width: 300px; max-width: 300px; background-color: rgb(246, 245, 244); min-width: 0px; height: 95vh; max-height: 95vh; min-height: 0vh; border-color: rgb(98, 160, 234); border-width: 1px; border-style: solid; box-sizing: border-box; border-radius: 3.6px; padding: 5px 6px; margin: 7px; overflow-y: scroll; display: flex; flex-direction: column;">
+
+        <div class="panel" style="width: 275px; flex-direction: column; background-color: rgb(255, 255, 255);">
+            <h3 style="padding: 0px; font-size: 24px; margin: 0px;">Control</h3>
+            <div id="targetName">
+
+            </div>
+            <div>
+                <button id="getparent" onclick="getparent()"
+                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 0.5rem 1.5rem; font-size: 15px; margin: 3px;">Parent</button>
+                <button onclick="copyStyle()"
+                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 0.5rem 1.5rem; font-size: 15px; margin: 3px;">copy
+                    style</button>
+                <button onclick="pasteStyle()"
+                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 0.5rem 1.5rem; font-size: 15px; margin: 3px;">paste
+                    style</button>
+                <button id="exportCss"
+                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 0.5rem 1.5rem; font-size: 15px; margin: 3px;">Export
+                    CSS</button>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <div style="display: flex; flex-direction: column;">
+                    <label for="">Couleur</label>
+                    <input type="color" name="" id="textColor">
+                </div>
+                <div style="display: flex; flex-direction: column; min-height: 50px; height: 50px; width: 50px;">
+                    <label for="">Police</label>
+                    <input type="number" name="" id="fontSize" style="height: 50px;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="">Bg</label>
+                    <input type="color" name="" id="bgColor">
+                </div>
+            </div>
+            <!-- Border -->
+            <details
+                style="margin: 10px 0px; padding: 0px; box-sizing: border-box; border-width: 1px; border-color: rgb(53, 132, 228); border-style: solid; border-radius: 5px;"
+                open="">
+                <summary
+                    style="margin-bottom: 0px; background-color: rgb(53, 132, 228); margin-left: 0px; padding: 8px; font-size: 19px; color: rgb(255, 255, 255); border-radius: 0px;">
+                    Border</summary>
+                <div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="">Border Width</label>
+                        <input type="number" id="bordersize" step="0.1"
+                            style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="">Border Color</label>
+                        <input type="color" id="bordercolor">
+                        <p id="colorcode">
+
+                        </p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="">Border type</label>
+                        <select name="" id="bordertype" style="padding: 5px;">
+                            <option value="solid" selected="" style="padding: 5px;">solid</option>
+                            <option value="dashed">dashed</option>
+                            <option value="double">double</option>
+                            <option value="groove">groove</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="borderRadius">Border Radius</label>
+                        <input type="number" name="" id="borderRadius"
+                            style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;" step="0.1">
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="">Unit</label>
+                        <select name="" id="borderUnit" style="padding: 5px;">
+                            <option value="px">px</option>
+                            <option value="rem">rem</option>
+                            <option value="%">%</option>
+                        </select>
+                    </div>
+                </div>
+            </details>
+            <!-- Spacing -->
+            <details
+                style="margin: 10px 0px; padding: 0px; box-sizing: border-box; border-width: 1px; border-color: rgb(53, 132, 228); border-style: solid; border-radius: 5px;"
+                open="">
+                <summary
+                    style="margin-bottom: 0px; background-color: rgb(53, 132, 228); margin-left: 0px; padding: 8px; font-size: 19px; color: rgb(255, 255, 255);">
+                    Spacing</summary>
+                <div>
+                    <div>
+                        <label for="" style="display: flex; flex-direction: column; padding: 5px;">Padding</label>
+                        <input type="number" name="" id="padding" placeholder="same padding"
+                            style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
+                        <div
+                            style="background-color: rgb(224, 27, 36); display: flex; width: 2px; flex-direction: row;">
+                            <input type="number" name="" id="paddingl" placeholder="pl" step="0.1"
+                                style="height: 30px; width: 45px;">
+                            <input type="number" name="" id="paddingt" placeholder="pt" step="0.1"
+                                style="height: 30px; width: 45px;">
+                            <input type="number" name="" id="paddingr" placeholder="pr" step="0.1"
+                                style="height: 30px; width: 45px;">
+                            <input type="number" name="" id="paddingb" placeholder="pb" step="0.1"
+                                style="height: 30px; width: 45px;">
+                        </div>
+                        <div style="display: flex; flex-direction: column; padding: 5px;">
+                            <label for="" style="padding: 3px;">unit</label>
+                            <select name="" id="paddingUnit" style="padding: 5px;">
+                                <option value="px">px</option>
+                                <option value="%">%</option>
+                                <option value="rem">rem</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="" style="padding: 3px;">Margin</label>
+                        <input type="number" name="" id="margin" placeholder="1px 1px 1px 1px"
+                            style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;" oninput="setmargin()">
+                        <div style="display: flex;">
+                            <input type="number" name="" id="marginl" placeholder="margin L" step="0.1"
+                                style="height: 30px; width: 45px;">
+                            <input type="number" name="" id="margint" placeholder="margin T" step="0.1"
+                                style="height: 30px; width: 45px;">
+                            <input type="number" name="" id="marginr" placeholder="margin R" step="0.1"
+                                style="height: 30px; width: 45px;">
+                            <input type="number" name="" id="marginb" placeholder="margin B" step="0.1"
+                                style="height: 30px; width: 45px;">
+                        </div>
+                        <div style="display: flex; flex-direction: column; padding: 5px;">
+                            <label for="" style="padding: 3px;">unit</label>
+                            <select name="" id="marginUnit" style="padding: 5px;">
+                                <option value="px">px</option>
+                                <option value="%">%</option>
+                                <option value="rem">rem</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="" style="padding: 3px;">Box Sizing</label>
+                        <select name="" id="boxsizing" style="padding: 5px;">
+                            <option value="border-box" selected="">border-box</option>
+                            <option value="content-box">content-box</option>
+                            <option value="inherit">inherit</option>
+                            <option value="initial">initial</option>
+                        </select>
+                    </div>
+                </div>
+            </details>
+            <!-- Sizing -->
+            <details
+                style="margin: 10px 0px; padding: 0px; box-sizing: border-box; border-width: 1px; border-color: rgb(53, 132, 228); border-style: solid; border-radius: 5px;">
+                <summary
+                    style="margin-bottom: 0px; background-color: rgb(53, 132, 228); margin-left: 0px; padding: 8px; font-size: 19px; color: rgb(255, 255, 255);">
+                    Sizing</summary>
+                <div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="">Width</label>
+                        <input type="number" name="" id="width"
+                            style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
+                        <select name="" id="widthunit">
+                            <option value="px">px</option>
+                            <option value="vw">vw</option>
+                            <option value="%">%</option>
+                            <option value="em">em</option>
+                            <option value="rem">rem</option>
+                        </select>
+                        <div>
+                            <input type="number" name="" id="minw" step="0.1">
+                            <input type="number" name="" id="maxw" step="0.1">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="">Height</label>
+                        <input type="number" name="" id="height"
+                            style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
+                        <select name="" id="heightunit">
+                            <option value="px">px</option>
+                            <option value="vh" selected="">vh</option>
+                            <option value="%">%</option>
+                            <option value="em">em</option>
+                            <option value="rem">rem</option>
+                        </select>
+                        <div>
+                            <input type="number" name="" id="minh" step="0.1">
+                            <input type="number" name="" id="maxh" step="0.1">
+                        </div>
+                    </div>
+                </div>
+            </details>
+            <!-- Display -->
+            <div style="display: flex; flex-direction: column; padding: 5px;">
+                <label for="" style="padding: 3px;">Display</label>
+                <select name="" id="display" style="padding: 5px;">
+                    <option value="none">none</option>
+                    <option value="block" selected="">Block</option>
+                    <option value="flex">flex</option>
+                </select>
+            </div>
+            <!-- flex -->
+            <details
+                style="margin: 10px 0px; padding: 0px; box-sizing: border-box; border-width: 1px; border-color: rgb(53, 132, 228); border-style: solid; border-radius: 5px;"
+                open="">
+                <summary
+                    style="margin-bottom: 0px; background-color: rgb(53, 132, 228); margin-left: 0px; padding: 8px; font-size: 19px; color: rgb(255, 255, 255);">
+                    Flex</summary>
+                <div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="flexdirection">Flex Direction</label>
+                        <select name="" id="flexdirection" style="padding: 5px;">
+                            <option value="row">Horizontal</option>
+                            <option value="column">Vertical</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding: 5px;">
+                        <label for="gap">Gap</label>
+                        <input type="number" name="" id="gap"
+                            style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
+                    </div>
+                    <div>
+                        <label for="">Justify content</label>
+                        <select name="" id="justify-content">
+                            <option value="center">center</option>
+                            <option value="space-between">space-between</option>
+                            <option value="space-around">space-around</option>
+                            <option value=" space-evenly"> space-evenly</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">Align item</label>
+                        <select name="align-items" id="">
+                            <option value="center">center</option>
+                            <option value="flex-start"> flex-start</option>
+                            <option value="flex-end"> flex-end</option>
+                            <option value="normal">normal</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </details>
+            <!-- position -->
+            <details
+                style="margin: 10px 0px; padding: 0px; box-sizing: border-box; border-width: 1px; border-color: rgb(53, 132, 228); border-style: solid; border-radius: 5px;">
+                <summary
+                    style="margin-bottom: 0px; background-color: rgb(53, 132, 228); margin-left: 0px; padding: 8px; font-size: 19px; color: rgb(255, 255, 255);">
+                    Position</summary>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="position">Position</label>
+                    <select name="" id="position" style="height: 30px; padding: 5px; margin: 0.5rem;">
+                        <option value="fixed">fixed</option>
+                        <option value="absolute">absolute</option>
+                        <option value="relative">relative</option>
+                        <option value="sticky">sticky</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="">L:</label>
+                    <input type="number" name="" id="posLeft">
+                </div>
+                <div>
+                    <label for="">T:</label>
+                    <input type="number" name="" id="posTop">
+                </div>
+                <div>
+                    <label for="">R:</label>
+                    <input type="number" name="" id="posRight">
+                </div>
+                <div>
+                    <label for="">B:</label>
+                    <input type="number" name="" id="posBottom">
+                </div>
+                <div>
+                    <label for="">Unit:</label>
+                    <select name="" id="posUnit">
+                        <option value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="rem">rem</option>
+                    </select>
+                </div>
+
+            </details>
+            <!-- Overflow -->
+
+            <details
+                style="margin: 10px 0px; padding: 0px; box-sizing: border-box; border-width: 1px; border-color: rgb(53, 132, 228); border-style: solid; border-radius: 5px;">
+                <summary
+                    style="margin-bottom: 0px; background-color: rgb(53, 132, 228); margin-left: 0px; padding: 8px; font-size: 19px; color: rgb(255, 255, 255);">
+                    Overflow</summary>
+                <div>
+                    <label for="">Overflow-x</label>
+                    <select name="" id="overflowx">
+                        <option value="inherit">inherit</option>
+                        <option value="hidden">hidden</option>
+                        <option value="visible">visible</option>
+                        <option value="scroll">scroll</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Overflow-y</label>
+                    <select name="" id="overflowy">
+                        <option value="inherit">inherit</option>
+                        <option value="hidden">hidden</option>
+                        <option value="visible">visible</option>
+                        <option value="scroll">scroll</option>
+                    </select>
+                </div>
+            </details>
+        </div>
+    </div>
+    <!-- <div class="studio">
         <div class="panel">
             <h3>1. COllez votre html</h3>
             <textarea name="" id="htmlInput"></textarea>
@@ -24,176 +333,19 @@
             <h3>2. prévisualisation</h3>
             <div id="renderZone"></div>
         </div>
-        <!-- <div class="panel">
-            <h3>Control</h3>
-            <div id="targetName">
-
-            </div>
-            <button id="getparent">Parent</button>
-            <button onclick="copyStyle()">copy style</button>
-            <button onclick="pasteStyle()">paste style</button>
-            <button id="exportCss">Export CSS</button>
-            <div>
-                <label for="">Couleur</label>
-                <input type="color" name="" id="textColor">
-            </div>
-            <div>
-                <label for="">Padding</label>
-                <input type="text" name="" id="padding" placeholder="1px 1px 1px 1px">
-            </div>
-            <div>
-                <label for="">Margin</label>
-                <input type="text" name="" id="margin" placeholder="1px 1px 1px 1px">
-            </div>
-            <div>
-                <label for="">Police</label>
-                <input type="number" name="" id="fontSize">
-            </div>
-            <div>
-                <label for="">Bg</label>
-                <input type="color" name="" id="bgColor">
-            </div>
-            <div>
-                <label for="">Width</label>
-                <input type="number" name="" id="width">
-            </div>
-            <div>
-                <label for="">Height</label>
-                <input type="number" name="" id="height">
-            </div>
-            <div>
-                <label for="">Display</label>
-                <input type="number" name="" id="heigth"> 
-                 <select name="" id="display">
-                    <option value="none">none</option>
-                    <option value="block" selected>Block</option>
-                    <option value="flex">flex</option>
-                 </select>
-            </div>
-            <div>
-                <label for="flexdirection">Flex Direction</label>
-                <select name="" id="flexdirection">
-                    <option value="row">Horizontal</option>
-                    <option value="column">Vertical</option>
-                </select>
-            </div>
-            <div>
-                <label for="gap">Gap</label>
-                <input type="number" name="" id="gap">
-            </div>
-            <div>
-                <label for="borderRadius">Border Radius</label>
-                <input type="number" name="" id="borderRadius">
-            </div>
-            <div>
-                <label for="position">Position</label>
-                <select name="" id="position">
-                    <option value="fixed">fixed</option>
-                    <option value="absolute">absolute</option>
-                    <option value="relative">relative</option>
-                    <option value="sticky">sticky</option>
-                </select>
-            </div>
-        </div> -->
-
-        <div class="panel" style="width: 300px; flex-direction: column; background-color: rgb(26, 95, 180);">
-            <h3>Control</h3>
-            <div id="targetName">
-
-            </div>
-            <div>
-                <button id="getparent">Parent</button>
-                <button onclick="copyStyle()">copy style</button>
-                <button onclick="pasteStyle()">paste style</button>
-                <button id="exportCss">Export CSS</button>
-            </div>
-            <div>
-                <div>
-                    <label for="">Couleur</label>
-                    <input type="color" name="" id="textColor">
-                </div>
-                <div>
-                    <label for="">Police</label>
-                    <input type="number" name="" id="fontSize">
-                </div>
-                <div>
-                    <label for="">Bg</label>
-                    <input type="color" name="" id="bgColor">
-                </div>
-            </div>
-            <div>
-                <div>
-                    <label for="">Padding</label>
-                    <input type="text" name="" id="padding" placeholder="1px 1px 1px 1px">
-                </div>
-                <div>
-                    <label for="">Margin</label>
-                    <input type="text" name="" id="margin" placeholder="1px 1px 1px 1px">
-                </div>
-                <div>
-                    <label for="">Box Sizing</label>
-                    <select name="" id="boxsizing">
-                        <option value="border-box">border-box</option>
-                        <option value="content-box">content-box</option>
-                        <option value="inherit">inherit</option>
-                        <option value="initial">initial</option>
-                    </select>
-                </div>
-            </div>
-
-            <div>
-                <div style="display: flex; flex-direction: column;">
-                    <label for="">Width</label>
-                    <input type="number" name="" id="width" style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
-                    <select name="" id="widthunit">
-                        <option value="px">px</option>
-                        <option value="vw">vw</option>
-                        <option value="%">%</option>
-                        <option value="em">em</option>
-                        <option value="rem">rem</option>
-                    </select>
-                </div>
-                <div style="display: flex; flex-direction: column;">
-                    <label for="">Height</label>
-                    <input type="number" name="" id="height"
-                        style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: column;">
-                <label for="">Display</label>
-                <select name="" id="display" style="height: 30px; padding: 5px; margin: 0.5rem;">
-                    <option value="none">none</option>
-                    <option value="block" selected="">Block</option>
-                    <option value="flex">flex</option>
-                </select>
-            </div>
-            <div>
-                <div style="display: flex; flex-direction: column;">
-                    <label for="flexdirection">Flex Direction</label>
-                    <select name="" id="flexdirection" style="height: 30px; padding: 5px; margin: 0.5rem;">
-                        <option value="row">Horizontal</option>
-                        <option value="column">Vertical</option>
-                    </select>
-                </div>
-                <div style="display: flex; flex-direction: column;">
-                    <label for="gap">Gap</label>
-                    <input type="number" name="" id="gap" style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: column;">
-                <label for="borderRadius">Border Radius</label>
-                <input type="number" name="" id="borderRadius"
-                    style="height: 30px; margin: 0.5rem; padding: 0rem 0.5rem;">
-            </div>
-            <div style="display: flex; flex-direction: column;">
-                <label for="position">Position</label>
-                <select name="" id="position" style="height: 30px; padding: 5px; margin: 0.5rem;">
-                    <option value="fixed">fixed</option>
-                    <option value="absolute">absolute</option>
-                    <option value="relative">relative</option>
-                    <option value="sticky">sticky</option>
-                </select>
-            </div>
+    </div> -->
+    <div class="studio"
+        style="width: 75%; background-color: rgb(246, 245, 244); padding: 10px; margin: 10px; box-sizing: border-box; border-width: 1px; border-style: double; border-radius: 3.4px; border-color: rgb(98, 160, 234); height: auto;">
+        <div class="panel" style="padding: 1px 10px 10px;">
+            <h3>1. COllez votre html</h3>
+            <textarea name="" id="htmlInput"
+                style="width: 993px; margin: 0px; box-sizing: border-box; min-width: 100%; height: 265px; min-height: 300px; border-width: 1px; border-radius: 4.5px; max-width: 100%; border-style: solid; border-color: rgb(98, 160, 234);"></textarea>
+        </div>
+        <div class="panel" style="margin: 9px;">
+            <h3>2. prévisualisation</h3>
+            <div id="renderZone"
+                style="width: 993px; margin: 0px; box-sizing: border-box; min-width: 100%; height: fit-content; min-height: 300px; border-width: 1px; border-radius: 4.5px; max-width: 100%; border-style: solid; border-color: rgb(98, 160, 234); padding: 3px;">
+                render</div>
         </div>
     </div>
     <script src="script.js"></script>
