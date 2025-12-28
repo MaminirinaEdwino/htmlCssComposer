@@ -15,14 +15,13 @@ htmlInput.addEventListener('input', () => {
             elementSelectionne = el
             targetName.innerText = "Cible : <" + el.tagName.toLocaleLowerCase() + ">"
             tousLesElements.forEach(item => {
-                if (el != item) {
-                    item.style.outline = "2px solid none"
-                }
+                item.style.outline = "2px solid transparent"
             })
-            // el.style.outline = "2px solid blue"
+            el.style.outline = "1px solid black"
         })
+        
     })
-
+    
 })
 
 
@@ -34,6 +33,8 @@ function set_style_no_unit(id) {
         id == "bgColor" ? elementSelectionne.style.backgroundColor = document.getElementById(id).value : "";
         id == "fontSize" ? elementSelectionne.style.fontSize = document.getElementById(id).value + "px" : "";
         id == "textAlign" ? elementSelectionne.style.textAlign = document.getElementById(id).value : ""
+        id == "font-weight" ? elementSelectionne.style.fontWeight = document.getElementById(id).value : ""
+        id == "font-family" ? elementSelectionne.style.fontFamily = document.getElementById(id).value : ""
         // width & height section
         id == "width" ? elementSelectionne.style.width = document.getElementById(id).value + document.getElementById('widthunit').value : ""
         id == "spec_width" && document.getElementById(id).value != "" ? elementSelectionne.style.width = document.getElementById(id).value : ""
@@ -100,8 +101,16 @@ function getparent() {
 }
 
 function synchroniser() {
-    targetName.innerText = "Cible : <" + elementSelectionne.tagName.toLocaleLowerCase() + ">"
-    htmlInput.value = renderZone.innerHTML
+    if (targetName.innerText) {
+        targetName.innerText = "Cible : <" + elementSelectionne.tagName.toLocaleLowerCase() + ">"
+        htmlInput.value = renderZone.innerHTML
+    }else{
+        document.getElementById('css-style').innerText = ""
+        for (let index = 0; index < stylesheet.cssRules.length; index++) {
+            document.getElementById('css-style').innerText +="\n"
+            document.getElementById('css-style').innerText += stylesheet.cssRules[index].cssText
+        }
+    }
 }
 
 // let clone = null
@@ -149,4 +158,69 @@ function telechargerFichier(nom, content) {
     lien.href = URL.createObjectURL(blob)
     lien.download = nom
     lien.click()
+}
+
+function handleCSS(params) {
+    let extern = document.getElementById('external-css-panel')
+    let inline = document.getElementById('inline-css-panel')
+
+    if (params == "inline") {
+        extern.style.display = "none"
+        inline.style.display = "flex"
+    }
+    if (params == "extern") {
+        extern.style.display = "block"
+        inline.style.display = "none"
+    }
+}
+
+let stylesheet = document.styleSheets[2]
+let selectedRule = null
+
+// stylesheet.insertRule("div{background-color: red}", stylesheet.cssRules.length)
+// alert(stylesheet.cssRules.length)
+// stylesheet.cssRules[0].color = 'blue'
+
+// alert(stylesheet.cssRules[0].selectorText)
+// stylesheet.cssRules[0].style.backgroundColor = "green"
+// document.getElementById('style-content').innerText = stylesheet.cssRules[0].cssText
+// stylesheet.cssRules[0].style.color = "red"
+// stylesheet.cssRules[0].style.padding = "10px"
+// document.getElementById('style-content').innerText = stylesheet.cssRules[0].cssText
+
+function synchroniserSelector() {
+    document.getElementById('selectorList').innerHTML = ""
+    for (let index = 0; index < stylesheet.cssRules.length; index++) {
+        document.getElementById('selectorList').innerHTML += `<option value="${index}" onclick="selectSelector('${index}')">${stylesheet.cssRules[index].selectorText}</option>`
+        console.log(stylesheet.cssRules[index].selectorText)
+    }
+}
+
+function add_new_selector() {
+    for (let index = 0; index < stylesheet.cssRules.length; index++) {
+        if (stylesheet.cssRules[index].selectorText == document.getElementById('new-selector-input').value) {
+            return
+        }
+    }
+    stylesheet.insertRule(`${document.getElementById('new-selector-input').value}{  }`, stylesheet.cssRules.length)
+    synchroniserSelector()
+}
+
+function selectSelector(index) {
+    elementSelectionne = stylesheet.cssRules[index]
+    // console.log('qsdf')
+}
+
+function setChangeExtern(id) {
+    if (selectedRule) {
+        id == "extern-border" ? selectedRule.style.border = `${document.getElementById(id).value}` : ""
+        id == "extern-bg" ? selectedRule.style.backgroundColor = document.getElementById(id).value : "tay"
+    }
+    console.log(selectedRule.cssText)
+
+    for (let index = 0; index < stylesheet.cssRules.length; index++) {
+        console.log(stylesheet.cssRules[index].cssText)
+
+    }
+    synchroniser()
 }

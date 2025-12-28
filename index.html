@@ -11,16 +11,76 @@
             margin: 0;
             padding: 0;
         }
+
+        #css-style {
+            background-color: rgb(255, 243, 243);
+            border-color: rgb(53, 132, 228);
+            border-style: solid;
+            border-radius: 5px;
+            border-width: 1px;
+            padding: 10px;
+            font-size: 14px;
+            min-height: 300px;
+        }
+
+        .btn-choix-onglet {
+            font-weight: 650;
+            border-width: 0px;
+            padding: 0.5rem 1.5rem 0.6rem;
+            border-radius: 5px;
+            color: rgb(246, 245, 244);
+            background-color: rgb(53, 132, 228);
+            font-family: Open Sans;
+        }
+
+        .btn-choix-onglet:hover {
+            background-color: rgb(98, 160, 234);
+        }
     </style>
+
 </head>
 
 <body>
+    <div id="style-content">
+
+    </div>
+    <style id="style-tag">
+        
+    </style>
     <div style=" position: fixed; right: 1px; top: 1px; width: 300px; max-width: 300px; background-color: rgb(255, 255, 255); min-width: 0px; height: 95vh; max-height: 95vh; min-height: 0vh; border-color: rgb(98, 160, 234); border-width: 1px; border-style: solid; box-sizing: border-box; border-radius: 3.6px; padding: 5px 6px; margin: 7px; overflow-y: scroll; display: flex; flex-direction: column;"
         id="style-id-1">
 
-        <div class="panel" style="width: 275px; flex-direction: column; background-color: rgb(255, 255, 255);"
+        <div>
+            <button onclick="handleCSS('inline')" class="btn-choix-onglet">Style</button>
+            <button onclick="handleCSS('extern')" class="btn-choix-onglet">Class</button>
+        </div>
+        <div id="external-css-panel">
+            <h3>
+                External css
+            </h3>
+            <div id="insertSelector">
+                <input type="text" id="new-selector-input">
+                <button onclick="add_new_selector()">add</button>
+            </div>
+            <select name="" id="selectorList">
+
+            </select>
+            <div>
+                <div>
+                    <label for="">Border</label>
+                    <input type="text" id="extern-border" oninput="setChangeExtern('extern-border')">
+                </div>
+                <div>
+                    <label for="">BG</label>
+                    <input type="color" name="" id="extern-bg" oninput="setChangeExtern('extern-bg')">
+                </div>
+            </div>
+        </div>
+
+        <div id="inline-css-panel"
+            style="width: 275px; flex-direction: column; background-color: rgb(255, 255, 255); display: none;"
             id="style-id-2">
-            <h3 style="padding: 0px; font-size: 24px; margin: 0px;" id="style-id-3">Control</h3>
+            <h3 style="padding: 0px; font-size: 24px; margin: 0px;" id="style-id-3">Inline css</h3>
             <div id="targetName">
 
             </div>
@@ -39,7 +99,7 @@
                     style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 9px 15px; font-size: 12px; margin: 3px;">Export
                     CSS</button>
             </div>
-            <div style="display: flex; gap: 3px; padding: 4px; margin: 0rem; box-sizing: border-box; flex-direction: row; justify-content: space-around;"
+            <div style="display: flex; gap: 3px; padding: 4px; margin: 0rem; box-sizing: border-box; flex-direction: row; justify-content: space-around; flex-wrap: wrap;"
                 id="style-id-7">
                 <div style="display: flex; flex-direction: column; " id="style-id-8">
                     <label for="" style="font-size: 13px;" id="style-id-9">Couleur</label>
@@ -48,9 +108,57 @@
                 </div>
                 <div style="display: flex; flex-direction: column; min-height: 50px; height: 50px; width: 50px;"
                     id="style-id-10">
-                    <label for="" style="font-size: 13px;" id="style-id-11">Police</label>
+                    <label for="" style=" font-size: 13px;" id="style-id-11">Police</label>
                     <input type="number" name="" id="fontSize" style="height: 50px;"
                         oninput="set_style_no_unit('fontSize')">
+                </div>
+                <div>
+                    <input type="number" id="font-weight" oninput="set_style_no_unit('font-weight')" step="50">
+                </div>
+                <div>
+                    <label for="">Font family</label>
+                    <select name="" id="font-family" oninput="set_style_no_unit('font-family')">
+                        <option value="Courier New">Courier New</option>
+                        <option value="Courier">Courier</option>
+                        <option value="monospace">Monospace</option>
+                        <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
+                        <option value="Arial Narrow">Arial Narrow</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Gill Sans">Gill Sans</option>
+                        <option value="Gill Sans MT">Gill Sans MT</option>
+                        <option value="Calibri">Calibri</option>
+                        <option value="Trebuchet MS">Trebuchet MS</option>
+                        <option value="Lucida Sans">Lucida Sans</option>
+                        <option value="Lucida Sans Regular">Lucida Sans Regular</option>
+                        <option value="Lucida Grande">Lucida Grande</option>
+                        <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                        <option value="Geneva">Geneva</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Segoe UI">Segoe UI</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Times">Times</option>
+                        <option value="serif">serif</option>
+                        <option value="Trebuchet MS">Trebuchet MS</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Cambria">Cambria</option>
+                        <option value="Cochin">Cochin</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Haettenschweiler">Haettenschweiler</option>
+                        <option value="Arial Narrow Bold">Arial Narrow Bold</option>
+                        <option value="cursive">cursive</option>
+                        <option value="system-ui">system-ui</option>
+                        <option value="Segoe UI">Segoe UI</option>
+                        <option value="Roboto">Roboto</option>
+                        <option value="Oxygen">Oxygen</option>
+                        <option value="Ubuntu">Ubuntu</option>
+                        <option value="Cantarell">Cantarell</option>
+                        <option value="Open Sans">Open Sans</option>
+                        <option value="Helvetica Neue">Helvetica Neue</option>
+                        <option value="fantasy">fantasy</option>
+                        <option value="inherit">inherit</option>
+                    </select>
                 </div>
                 <div style="display: flex; flex-direction: column;" id="style-id-12">
                     <label for="" style="font-size: 13px;" id="style-id-13">Bg</label>
@@ -439,6 +547,7 @@
                 </div>
             </details>
         </div>
+
     </div>
     <!-- <div class="studio">
         <div class="panel">
@@ -453,7 +562,7 @@
     <div class="studio"
         style="width: 75%; background-color: rgb(246, 245, 244); padding: 10px; margin: 10px; box-sizing: border-box; border-width: 1px; border-style: double; border-radius: 3.4px; border-color: rgb(98, 160, 234); height: auto;">
         <div class="panel" style="padding: 1px 10px 10px;">
-            <h3>1. COllez votre html</h3>
+            <h3>1. html</h3>
             <textarea name="" id="htmlInput"
                 style="width: 993px; margin: 0px; box-sizing: border-box; min-width: 100%; height: 265px; min-height: 300px; border-width: 1px; border-radius: 4.5px; max-width: 100%; border-style: solid; border-color: rgb(98, 160, 234);"></textarea>
         </div>
@@ -462,9 +571,14 @@
             <div id="renderZone"
                 style="width: 993px; margin: 0px; box-sizing: border-box; min-width: 100%; height: fit-content; min-height: 300px; border-width: 1px; border-radius: 4.5px; max-width: 100%; border-style: solid; border-color: rgb(98, 160, 234); padding: 3px;">
             </div>
+            <h3>3. Style CSS externe</h3>
+            <div id="css-style">
+
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="script1.js"></script>
 </body>
 
 </html>
