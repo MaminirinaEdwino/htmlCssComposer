@@ -1,19 +1,29 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-#htmlInputd {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    width: 300px;
-    box-sizing: border-box;
-    justify-content: space-evenly;
-    align-items: normal;
-    flex-wrap: wrap-reverse;
-    text-align: center;
-    height: 300px;
-    backdrop-filter: blur(20px);
+#css-style {
+    background-color: rgb(255, 243, 243);
+    border-color: rgb(53, 132, 228);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 10px;
+    font-size: 14px;
+    min-height: 300px;
+}
+
+.btn-choix-onglet {
+    font-weight: 650;
+    border-width: 0px;
+    padding: 0.5rem 1.5rem 0.6rem;
+    border-radius: 5px;
+    color: rgb(246, 245, 244);
+    background-color: rgb(53, 132, 228);
+    font-family: Open Sans;
+}
+
+.btn-choix-onglet:hover {
+    background-color: rgb(98, 160, 234);
 }

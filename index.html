@@ -7,35 +7,7 @@
     <title>Styler</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        #css-style {
-            background-color: rgb(255, 243, 243);
-            border-color: rgb(53, 132, 228);
-            border-style: solid;
-            border-radius: 5px;
-            border-width: 1px;
-            padding: 10px;
-            font-size: 14px;
-            min-height: 300px;
-        }
-
-        .btn-choix-onglet {
-            font-weight: 650;
-            border-width: 0px;
-            padding: 0.5rem 1.5rem 0.6rem;
-            border-radius: 5px;
-            color: rgb(246, 245, 244);
-            background-color: rgb(53, 132, 228);
-            font-family: Open Sans;
-        }
-
-        .btn-choix-onglet:hover {
-            background-color: rgb(98, 160, 234);
-        }
+        
     </style>
 
 </head>
@@ -45,7 +17,7 @@
 
     </div>
     <style id="style-tag">
-        
+
     </style>
     <div style=" position: fixed; right: 1px; top: 1px; width: 300px; max-width: 300px; background-color: rgb(255, 255, 255); min-width: 0px; height: 95vh; max-height: 95vh; min-height: 0vh; border-color: rgb(98, 160, 234); border-width: 1px; border-style: solid; box-sizing: border-box; border-radius: 3.6px; padding: 5px 6px; margin: 7px; overflow-y: scroll; display: flex; flex-direction: column;"
         id="style-id-1">
@@ -103,21 +75,19 @@
                 id="style-id-7">
                 <div style="display: flex; flex-direction: column; " id="style-id-8">
                     <label for="" style="font-size: 13px;" id="style-id-9">Couleur</label>
-                    <input type="color" name="" id="textColor" oninput="set_style_no_unit('textColor')"
-                        style="width: 37px;">
+                    <input type="color" name="" id="textColor" oninput="set_style('textColor')" style="width: 37px;">
                 </div>
                 <div style="display: flex; flex-direction: column; min-height: 50px; height: 50px; width: 50px;"
                     id="style-id-10">
                     <label for="" style=" font-size: 13px;" id="style-id-11">Police</label>
-                    <input type="number" name="" id="fontSize" style="height: 50px;"
-                        oninput="set_style_no_unit('fontSize')">
+                    <input type="number" name="" id="fontSize" style="height: 50px;" oninput="set_style('fontSize')">
                 </div>
                 <div>
-                    <input type="number" id="font-weight" oninput="set_style_no_unit('font-weight')" step="50">
+                    <input type="number" id="font-weight" oninput="set_style('font-weight')" step="50">
                 </div>
                 <div>
                     <label for="">Font family</label>
-                    <select name="" id="font-family" oninput="set_style_no_unit('font-family')">
+                    <select name="" id="font-family" oninput="set_style('font-family')">
                         <option value="Courier New">Courier New</option>
                         <option value="Courier">Courier</option>
                         <option value="monospace">Monospace</option>
@@ -162,12 +132,11 @@
                 </div>
                 <div style="display: flex; flex-direction: column;" id="style-id-12">
                     <label for="" style="font-size: 13px;" id="style-id-13">Bg</label>
-                    <input type="color" name="" id="bgColor" oninput="set_style_no_unit('bgColor')"
-                        style="width: 37px;">
+                    <input type="color" name="" id="bgColor" oninput="set_style('bgColor')" style="width: 37px;">
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: space-evenly;" id="style-id-14">
                     <label for="" style="font-size: 13px;" id="style-id-15">Text align</label>
-                    <select name="" id="textAlign" oninput="set_style_no_unit('textAlign')"
+                    <select name="" id="textAlign" oninput="set_style('textAlign')"
                         style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px;">
                         <option value="center">center</option>
                         <option value="justify">justify</option>
@@ -194,13 +163,12 @@
                             id="style-id-20">Width</label>
                         <input type="number" id="bordersize" step="0.1"
                             style="height: 30px; margin: 0.5rem; padding: 0px 2px; width: 45px;"
-                            oninput="set_style_no_unit('bordersize')">
+                            oninput="set_style('bordersize')">
                     </div>
                     <div style="display: flex; flex-direction: column; padding: 0px; gap: 9px;" id="style-id-21">
                         <label for="" style="font-size: 12px; margin: 0rem; padding: 0px;"
                             id="style-id-22">Color</label>
-                        <input type="color" id="bordercolor" oninput="set_style_no_unit('bordercolor')"
-                            style="width: 37px;">
+                        <input type="color" id="bordercolor" oninput="set_style('bordercolor')" style="width: 37px;">
                         <p id="colorcode">
 
                         </p>
@@ -210,7 +178,7 @@
                         <label for="" style="font-size: 12px; margin: 0rem; padding: 0px;" id="style-id-24">type</label>
                         <select name="" id="bordertype"
                             style="padding: 5px; background-color: rgb(255, 255, 255); border-width: 0px;"
-                            oninput="set_style_no_unit('bordertype')">
+                            oninput="set_style('bordertype')">
                             <option value="solid" selected="" style="padding: 5px;" id="style-id-25">solid</option>
                             <option value="dashed">dashed</option>
                             <option value="double">double</option>
@@ -223,14 +191,14 @@
                             id="style-id-27">Radius</label>
                         <input type="number" name="" id="borderRadius"
                             style="height: 30px; margin: 0.5rem; padding: 0px 2px; width: 45px;" step="0.1"
-                            oninput="set_style_no_unit('borderRadius')">
+                            oninput="set_style('borderRadius')">
                     </div>
                     <div style="font-size: 12px; margin: 0rem; padding: 0px; flex-direction: column; display: flex;"
                         id="style-id-28">
                         <label for="" style="font-size: 12px; margin: 0rem; padding: 0px;" id="style-id-29"></label>
                         <select name="" id="borderUnit"
                             style="padding: 5px; background-color: rgb(255, 255, 255); border-width: 0px; gap: 2px;"
-                            oninput="set_style_no_unit('borderUnit')">
+                            oninput="set_style('borderUnit')">
                             <option value="px">px</option>
                             <option value="rem">rem</option>
                             <option value="%">%</option>
@@ -256,25 +224,25 @@
                             id="style-id-35">
                             <input type="number" name="" id="paddingl" placeholder="pl" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('paddingl')">
+                                oninput="set_style('paddingl')">
                             <input type="number" name="" id="paddingt" placeholder="pt" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('paddingt')">
+                                oninput="set_style('paddingt')">
                             <input type="number" name="" id="paddingr" placeholder="pr" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('paddingr')">
+                                oninput="set_style('paddingr')">
                             <input type="number" name="" id="paddingb" placeholder="pb" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('paddingb')">
+                                oninput="set_style('paddingb')">
                         </div>
                         <div style="display: flex; flex-direction: row; padding: 5px 10px; width: auto; align-items: center; justify-content: space-between; gap: 5px;"
                             id="style-id-36">
                             <input type="number" name="" id="padding" placeholder="same padding"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('padding')">
+                                oninput="set_style('padding')">
                             <select name="" id="paddingUnit"
                                 style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px;"
-                                oninput="set_style_no_unit('paddingUnit')">
+                                oninput="set_style('paddingUnit')">
                                 <option value="px">px</option>
                                 <option value="%">%</option>
                                 <option value="rem">rem</option>
@@ -291,25 +259,25 @@
                             id="style-id-39">
                             <input type="number" name="" id="marginl" placeholder="margin L" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('marginl')">
+                                oninput="set_style('marginl')">
                             <input type="number" name="" id="margint" placeholder="margin T" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('margint')">
+                                oninput="set_style('margint')">
                             <input type="number" name="" id="marginr" placeholder="margin R" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('marginr')">
+                                oninput="set_style('marginr')">
                             <input type="number" name="" id="marginb" placeholder="margin B" step="0.1"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('marginb')">
+                                oninput="set_style('marginb')">
                         </div>
                         <div style="display: flex; flex-direction: row; padding: 5px; justify-content: space-between;"
                             id="style-id-40">
                             <input type="number" name="" id="margin" placeholder="1px 1px 1px 1px"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('margin')">
+                                oninput="set_style('margin')">
                             <select name="" id="marginUnit"
                                 style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: 50px;"
-                                oninput="set_style_no_unit('marginUnit')">
+                                oninput="set_style('marginUnit')">
                                 <option value="px">px</option>
                                 <option value="%">%</option>
                                 <option value="rem">rem</option>
@@ -322,7 +290,7 @@
                             id="style-id-42">Box Sizing</label>
                         <select name="" id="boxsizing"
                             style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: auto;"
-                            oninput="set_style_no_unit('boxsizing')">
+                            oninput="set_style('boxsizing')">
                             <option value="border-box" selected="">border-box</option>
                             <option value="content-box">content-box</option>
                             <option value="inherit">inherit</option>
@@ -343,7 +311,7 @@
                     <div style="display: flex; flex-direction: column;" id="style-id-45">
                         <label for="" style="display: flex; flex-direction: column; padding: 5px; font-size: 12px;"
                             id="style-id-46">Width</label>
-                        <select name="" id="spec_width" oninput="set_style_no_unit('spec_width')"
+                        <select name="" id="spec_width" oninput="set_style('spec_width')"
                             style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px;">
                             <option value="">none</option>
                             <option value="auto">auto</option>
@@ -354,8 +322,8 @@
                             id="style-id-47">
                             <input type="number" name="" id="width"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('width')" placeholder="w">
-                            <select name="" id="widthunit" oninput="set_style_no_unit('widthunit')"
+                                oninput="set_style('width')" placeholder="w">
+                            <select name="" id="widthunit" oninput="set_style('widthunit')"
                                 style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px;">
                                 <option value="px">px</option>
                                 <option value="vw">vw</option>
@@ -363,12 +331,27 @@
                                 <option value="em">em</option>
                                 <option value="rem">rem</option>
                             </select>
-                            <input type="number" name="" id="minw" step="0.1" oninput="set_style_no_unit('minw')"
+                            <input type="number" name="" id="minw" step="0.1" oninput="set_style('minw')"
                                 placeholder="minw"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
-                            <input type="number" name="" id="maxw" step="0.1" oninput="set_style_no_unit('maxw')"
+
+                            <select name="" id="minwunit" oninput="set_style('minwunit')">
+                                <option value="px">px</option>
+                                <option value="vw">vw</option>
+                                <option value="%">%</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                            </select>
+                            <input type="number" name="" id="maxw" step="0.1" oninput="set_style('maxw')"
                                 placeholder="maxw"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
+                            <select name="" id="maxwunit" oninput="set_style('maxwunit')">
+                                <option value="px">px</option>
+                                <option value="vw">vw</option>
+                                <option value="%">%</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                            </select>
                         </div>
                     </div>
 
@@ -380,8 +363,8 @@
                             style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; display: flex; flex-direction: row; justify-content: space-around; align-items: center;">
                             <input type="number" name="" id="height"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;"
-                                oninput="set_style_no_unit('height')" placeholder="h">
-                            <select name="" id="heightunit" oninput="set_style_no_unit('heightunit')"
+                                oninput="set_style('height')" placeholder="h">
+                            <select name="" id="heightunit" oninput="set_style('heightunit')"
                                 style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px;">
                                 <option value="px">px</option>
                                 <option value="vh" selected="">vh</option>
@@ -389,12 +372,26 @@
                                 <option value="em">em</option>
                                 <option value="rem">rem</option>
                             </select>
-                            <input type="number" name="" id="minh" step="0.1" oninput="set_style_no_unit('minh')"
+                            <input type="number" name="" id="minh" step="0.1" oninput="set_style('minh')"
                                 placeholder="minh"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
-                            <input type="number" name="" id="maxh" step="0.1" oninput="set_style_no_unit('maxh')"
+                            <select name="" id="minhunit" oninput="set_style('minhunit')">
+                                <option value="px">px</option>
+                                <option value="vh" selected="">vh</option>
+                                <option value="%">%</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                            </select>
+                            <input type="number" name="" id="maxh" step="0.1" oninput="set_style('maxh')"
                                 placeholder="maxh"
                                 style="height: 30px; width: 45px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
+                            <select name="" id="maxhunit" oninput="set_style('maxhunit')">
+                                <option value="px">px</option>
+                                <option value="vh" selected="">vh</option>
+                                <option value="%">%</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -406,7 +403,7 @@
                     id="style-id-51">Display</label>
                 <select name="" id="display"
                     style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: auto;"
-                    oninput="set_style_no_unit('display')">
+                    oninput="set_style('display')">
                     <option value="none">none</option>
                     <option value="block" selected="">Block</option>
                     <option value="flex">flex</option>
@@ -427,7 +424,7 @@
                             Direction</label>
                         <select name="" id="flexdirection"
                             style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: 94%; margin-left: 5px;"
-                            oninput="set_style_no_unit('flexdirection')">
+                            oninput="set_style('flexdirection')">
                             <option value="row">Horizontal</option>
                             <option value="column">Vertical</option>
                         </select>
@@ -435,7 +432,7 @@
                     <div><label for=""
                             style="display: flex; flex-direction: column; padding: 5px; font-size: 12px;">Flex
                             Wrap</label>
-                        <select name="" id="flexwrap" oninput="set_style_no_unit('flexwrap')"
+                        <select name="" id="flexwrap" oninput="set_style('flexwrap')"
                             style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: 94%; margin-left: 5px;">
                             <option value="nowrap">nowrap</option>
                             <option value="wrap">wrap</option>
@@ -445,14 +442,14 @@
                     <div style="display: flex; flex-direction: column; padding: 5px;" id="style-id-55">
                         <label for="gap"
                             style="display: flex; flex-direction: column; padding: 5px; font-size: 12px;">Gap</label>
-                        <input type="number" name="" id="gap" oninput="set_style_no_unit('gap')"
+                        <input type="number" name="" id="gap" oninput="set_style('gap')"
                             style="height: 30px; width: 95%; border-radius: 4.1px; border-width: 0px; padding-left: 5px; margin-left: 5.1px;">
                     </div>
                     <div>
                         <label for=""
                             style="display: flex; flex-direction: column; padding: 5px; font-size: 12px;">Justify
                             content</label>
-                        <select name="" id="justify-content" oninput="set_style_no_unit('justify-content')"
+                        <select name="" id="justify-content" oninput="set_style('justify-content')"
                             style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: 94%; margin-left: 5px;">
                             <option value="center">center</option>
                             <option value="space-between">space-between</option>
@@ -464,7 +461,7 @@
                         <label for=""
                             style="display: flex; flex-direction: column; padding: 5px; font-size: 12px;">Align
                             item</label>
-                        <select name="align-items" id="align-items" oninput="set_style_no_unit('align-items')"
+                        <select name="align-items" id="align-items" oninput="set_style('align-items')"
                             style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: 94%; margin-left: 5px;">
                             <option value="center">center</option>
                             <option value="flex-start"> flex-start</option>
@@ -489,7 +486,7 @@
                         style="display: flex; flex-direction: column; padding: 5px; font-size: 12px;">Position</label>
                     <select name="" id="position"
                         style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: 94%; margin-left: 5px;"
-                        oninput="set_style_no_unit('position')">
+                        oninput="set_style('position')">
                         <option value="fixed">fixed</option>
                         <option value="absolute">absolute</option>
                         <option value="relative">relative</option>
@@ -498,15 +495,15 @@
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-around; gap: 0px;">
-                    <input type="number" name="" id="posLeft" oninput="set_style_no_unit('posLeft')" placeholder="L"
+                    <input type="number" name="" id="posLeft" oninput="set_style('posLeft')" placeholder="L"
                         style="height: 6vh; width: 40px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
-                    <input type="number" name="" id="posTop" oninput="set_style_no_unit('posTop')" placeholder="T"
+                    <input type="number" name="" id="posTop" oninput="set_style('posTop')" placeholder="T"
                         style="height: 6vh; width: 40px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
-                    <input type="number" name="" id="posRight" oninput="set_style_no_unit('posRight')" placeholder="R"
+                    <input type="number" name="" id="posRight" oninput="set_style('posRight')" placeholder="R"
                         style="height: 6vh; width: 40px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
-                    <input type="number" name="" id="posBottom" oninput="set_style_no_unit('posBottom')" placeholder="B"
+                    <input type="number" name="" id="posBottom" oninput="set_style('posBottom')" placeholder="B"
                         style="height: 6vh; width: 40px; border-radius: 4.1px; border-width: 0px; padding-left: 5px;">
-                    <select name="" id="posUnit" oninput="set_style_no_unit('posUnit')"
+                    <select name="" id="posUnit" oninput="set_style('posUnit')"
                         style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0px; border-radius: 4px; width: 42px;">
                         <option value="px">px</option>
                         <option value="%">%</option>
@@ -527,7 +524,7 @@
                     Overflow</summary>
                 <div style="display: flex; justify-content: space-around; align-items: center;">
                     <label for="">x</label>
-                    <select name="" id="overflowx" oninput="set_style_no_unit('overflowx')"
+                    <select name="" id="overflowx" oninput="set_style('overflowx')"
                         style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0.1px; border-radius: 4px; width: 200px; margin: 5px;">
                         <option value="inherit">inherit</option>
                         <option value="hidden">hidden</option>
@@ -537,7 +534,7 @@
                 </div>
                 <div style="display: flex; justify-content: space-around; align-items: center;">
                     <label for="">y</label>
-                    <select name="" id="overflowy" oninput="set_style_no_unit('overflowy')"
+                    <select name="" id="overflowy" oninput="set_style('overflowy')"
                         style="padding: 5px; height: 6vh; background-color: rgb(255, 255, 255); border-width: 0.1px; border-radius: 4px; width: 200px; margin: 5px;">
                         <option value="inherit">inherit</option>
                         <option value="hidden">hidden</option>
@@ -549,16 +546,7 @@
         </div>
 
     </div>
-    <!-- <div class="studio">
-        <div class="panel">
-            <h3>1. COllez votre html</h3>
-            <textarea name="" id="htmlInput"></textarea>
-        </div>
-        <div class="panel">
-            <h3>2. prévisualisation</h3>
-            <div id="renderZone"></div>
-        </div>
-    </div> -->
+
     <div class="studio"
         style="width: 75%; background-color: rgb(246, 245, 244); padding: 10px; margin: 10px; box-sizing: border-box; border-width: 1px; border-style: double; border-radius: 3.4px; border-color: rgb(98, 160, 234); height: auto;">
         <div class="panel" style="padding: 1px 10px 10px;">
@@ -578,7 +566,6 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="script1.js"></script>
 </body>
 
 </html>

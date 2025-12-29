@@ -4,6 +4,38 @@ const targetName = document.getElementById('targetName')
 let pressepapier = null
 let elementSelectionne = null
 
+function GetUnit(params)  {
+    let match = params.match(/^(\d*\.?\d+)([a-zA-Z]+)?$/)
+    let valeur = null
+    let unit = ""
+    if (match) {
+        valeur = parseFloat(match[1])
+        unit = match[2] || "";
+    }
+    console.log(valeur, unit)
+    return {valeur, unit}
+}
+console.log(GetUnit("px"))
+function syncAllStyleWithControls(element){
+    // text section
+    element.style.color ? document.getElementById('textColor').value = element.style.color : ""
+    element.style.backgroundColor ? document.getElementById('bgColor').value = element.style.backgroundColor : ""
+    element.style.textAlign ? document.getElementById('textAlign').value = element.style.textAlign :""
+    element.style.fontWeight ? document.getElementById('font-weight').value = element.style.fontWeight : ""
+    element.style.fontFamily ?  document.getElementById('font-family').value = element.fontFamily : ""
+    let fontSize = null
+
+    element.style.width == "inherit" || element.style.width == "auto" || element.style.width == "fit-content" ? document.getElementById('spec_width').value = element.style.width : fontSize = GetUnit(element.style.fontSize)
+
+    fontSize.value != null ? document.getElementById('fontSize').value = fontSize.value : ""
+    fontSize.value != null ? document.getElementById('widthunit').value = fontSize.unit : ""
+    
+
+    // width & height section
+    
+    
+}
+
 htmlInput.addEventListener('input', () => {
     renderZone.innerHTML = htmlInput.value
     const tousLesElements = renderZone.querySelectorAll('*')
@@ -26,7 +58,7 @@ htmlInput.addEventListener('input', () => {
 
 
 // changement de valuer sans unité comme px ou rem
-function set_style_no_unit(id) {
+function set_style(id) {
     if (elementSelectionne) {
         // text section
         id == "textColor" ? elementSelectionne.style.color = document.getElementById(id).value : "";
@@ -39,10 +71,10 @@ function set_style_no_unit(id) {
         id == "width" ? elementSelectionne.style.width = document.getElementById(id).value + document.getElementById('widthunit').value : ""
         id == "spec_width" && document.getElementById(id).value != "" ? elementSelectionne.style.width = document.getElementById(id).value : ""
         id == "height" ? elementSelectionne.style.height = document.getElementById(id).value + document.getElementById('heightunit').value : ""
-        id == "minw" ? elementSelectionne.style.minWidth = document.getElementById(id).value + document.getElementById('widthunit').value : "";
-        id == "maxw" ? elementSelectionne.style.maxWidth = document.getElementById(id).value + document.getElementById('widthunit').value : "";
-        id == "minh" ? elementSelectionne.style.minHeight = document.getElementById(id).value + document.getElementById('heightunit').value : "";
-        id == "maxh" ? elementSelectionne.style.maxHeight = document.getElementById(id).value + document.getElementById('heightunit').value : "";
+        id == "minw" ? elementSelectionne.style.minWidth = document.getElementById(id).value + document.getElementById('minwunit').value : "";
+        id == "maxw" ? elementSelectionne.style.maxWidth = document.getElementById(id).value + document.getElementById('maxwunit').value : "";
+        id == "minh" ? elementSelectionne.style.minHeight = document.getElementById(id).value + document.getElementById('minhunit').value : "";
+        id == "maxh" ? elementSelectionne.style.maxHeight = document.getElementById(id).value + document.getElementById('maxhunit').value : "";
         // Display section
         id == "display" ? elementSelectionne.style.display = document.getElementById(id).value : "";
         // flex section
