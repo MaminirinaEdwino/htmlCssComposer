@@ -134,6 +134,18 @@ function syncAllStyleWithControls(element) {
     element.style.alignItems ? document.getElementById('align-items').value = element.style.alignItems : ""
     gap.value != null ? document.getElementById('gap').value = gap.value :""
     element.style.flexWrap ? document.getElementById('flexwrap').value = element.style.flexWrap : ""
+    // position section
+    let posl = GetUnit(element.style.left), post = GetUnit(element.style.top), posr = GetUnit(element.style.right), posb = GetUnit(element.style.bottom)
+    element.style.position ? document.getElementById("position").value = element.style.position : ""
+    posl.unit != ""? document.getElementById('poslunit').value = posl.unit : ""
+    post.unit != ""? document.getElementById('postunit').value = post.unit : ""
+    posr.unit != ""? document.getElementById('posrunit').value = posr.unit : ""
+    posb.unit != ""? document.getElementById('posbunit').value = posb.unit : ""
+    posl.value != null ? document.getElementById('posLeft').value = posl.value : ""
+    post.value != null ? document.getElementById('posTop').value = post.value : ""
+    posr.value != null ? document.getElementById('posRight').value = posr.value : ""
+    posb.value != null ? document.getElementById('posBottom').value  =posb.value : ""
+
     
 }
 
@@ -223,11 +235,17 @@ function set_style(id) {
 
         document.getElementById(id).style.borderTop
         // position section
-        id == "position" ? elementSelectionne.style.position = document.getElementById(id).value + document.getElementById('posUnit').value : "";
-        id == "posLeft" ? elementSelectionne.style.left = document.getElementById(id).value + document.getElementById('posUnit').value : "";
-        id == "posTop" ? elementSelectionne.style.top = document.getElementById(id).value + document.getElementById('posUnit').value : "";
-        id == "posRight" ? elementSelectionne.style.right = document.getElementById(id).value + document.getElementById('posUnit').value : "";
-        id == "posBottom" ? elementSelectionne.style.bottom = document.getElementById(id).value + document.getElementById('posUnit').value : "";
+        id == "position" ? elementSelectionne.style.position = document.getElementById(id).value : "";
+        id == "posLeft" ? elementSelectionne.style.left = document.getElementById(id).value + document.getElementById('poslunit').value : "";
+        id == "posTop" ? elementSelectionne.style.top = document.getElementById(id).value + document.getElementById('postunit').value : "";
+        id == "posRight" ? elementSelectionne.style.right = document.getElementById(id).value + document.getElementById('posrunit').value : "";
+        id == "posBottom" ? elementSelectionne.style.bottom = document.getElementById(id).value + document.getElementById('posbunit').value : "";
+        if (id == "posUnit") {
+            document.getElementById('poslunit').value = document.getElementById(id).value
+            document.getElementById('postunit').value = document.getElementById(id).value
+            document.getElementById('posrunit').value = document.getElementById(id).value
+            document.getElementById('posbunit').value = document.getElementById(id).value
+        }
         // overflow section
         id == "overflowx" ? elementSelectionne.style.overflowX = document.getElementById(id).value : "";
         id == "overflowy" ? elementSelectionne.style.overflowY = document.getElementById(id).value : "";
