@@ -45,6 +45,18 @@ function syncAllStyleWithControls(element) {
     minwunit.unit != '' ? document.getElementById('minwunit').value = minwunit.unit : ""
     minwunit.value != null ? document.getElementById('minw').value = minwunit.value : ""
 
+    let hunit = GetUnit(element.style.height);
+    let maxhunit = GetUnit(element.style.maxHeight);
+    let minhunit = GetUnit(element.style.minHeight); 
+
+    hunit.unit!= ""? document.getElementById('heightunit').value = hunit.unit :""
+    maxhunit.unit != "" ? document.getElementById('maxhunit').value = maxhunit.unit : ""
+    minhunit.unit != "" ? document.getElementById('minhunit').value = minhunit.unit : ""
+
+    hunit.value != null ? document.getElementById('height').value = hunit.value : ""
+    maxhunit.value !=  null ? document.getElementById('maxh').value = maxhunit.value : ""
+    minhunit.value != null ? document.getElementById('minh').value = minhunit.value : ""
+
 }
 
 htmlInput.addEventListener('input', () => {
