@@ -124,6 +124,11 @@ function syncAllStyleWithControls(element) {
     brbr.value != null ? document.getElementById('rbradius').value = brbr.value : ""
     brtl.value != null ? document.getElementById('tbradius').value = brtl.value : ""
     brtr.value != null ? document.getElementById('bbradius').value = brtr.value : ""
+
+    // display section 
+    element.style.display ? document.getElementById('display').value = element.style.display : ""
+
+    
 }
 
 htmlInput.addEventListener('input', () => {
