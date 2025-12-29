@@ -127,7 +127,13 @@ function syncAllStyleWithControls(element) {
 
     // display section 
     element.style.display ? document.getElementById('display').value = element.style.display : ""
-
+    // flex section
+    let gap = GetUnit(element.style.gap)
+    element.style.flexDirection ? document.getElementById('flexdirection').value = element.style.flexDirection : ""
+    element.style.justifyContent ? document.getElementById('justify-content').value = element.style.justifyContent : ""
+    element.style.alignItems ? document.getElementById('align-items').value = element.style.alignItems : ""
+    gap.value != null ? document.getElementById('gap').value = gap.value :""
+    element.style.flexWrap ? document.getElementById('flexwrap').value = element.style.flexWrap : ""
     
 }
 
