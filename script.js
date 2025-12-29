@@ -86,6 +86,20 @@ function syncAllStyleWithControls(element) {
     element.style.borderBottomStyle ?  document.getElementById('bbstyle').value = element.style.borderBottomStyle : ""
     element.style.borderBottomColor ?  document.getElementById('bbcolor').value = element.style.borderBottomColor : ""
 
+    let p = GetUnit(element.style.padding), pl = GetUnit(element.style.paddingLeft), pt = GetUnit(element.style.paddingTop), pr = GetUnit(element.style.paddingRight), pb = GetUnit(element.style.paddingBottom)
+
+    p.unit != "" ? document.getElementById('paddingUnit').value = p.unit : ""
+    p.value != null ? document.getElementById('padding').value = p.value : ""
+    pl.unit != "" ? document.getElementById('plunit').value = pl.unit : ""
+    pl.value != null ? document.getElementById('paddingl').value = pl.value : ""
+    pt.unit != "" ? document.getElementById('ptunit').value = pt.unit : ""
+    pt.value != null ? document.getElementById('paddingt').value = pt.value : ""
+    pr.unit != "" ? document.getElementById('prunit').value = pr.unit : ""
+    pr.value != null ? document.getElementById('paddingr').value = pr.value : ""
+    pb.unit != "" ? document.getElementById('pbunit').value = pb.unit : ""
+    pb.value != null ? document.getElementById('paddingb').value = pb.value : ""
+    
+
 }
 
 htmlInput.addEventListener('input', () => {
@@ -144,10 +158,10 @@ function set_style(id) {
         id == "marginb" ? elementSelectionne.style.marginBottom = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
         // padding section
         id == "padding" ? elementSelectionne.style.padding = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
-        id == "paddingl" ? elementSelectionne.style.paddingLeft = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
-        id == "paddingt" ? elementSelectionne.style.paddingTop = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
-        id == "paddingr" ? elementSelectionne.style.paddingRight = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
-        id == "paddingb" ? elementSelectionne.style.paddingBottom = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
+        id == "paddingl" ? elementSelectionne.style.paddingLeft = document.getElementById(id).value + document.getElementById('plunit').value : "";
+        id == "paddingt" ? elementSelectionne.style.paddingTop = document.getElementById(id).value + document.getElementById('ptunit').value : "";
+        id == "paddingr" ? elementSelectionne.style.paddingRight = document.getElementById(id).value + document.getElementById('prunit').value : "";
+        id == "paddingb" ? elementSelectionne.style.paddingBottom = document.getElementById(id).value + document.getElementById('pbunit').value : "";
         // box sizing section
         id == "boxsizing" ? elementSelectionne.style.boxSizing = document.getElementById(id).value : "";
         // border section
