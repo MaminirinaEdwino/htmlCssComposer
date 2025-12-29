@@ -56,7 +56,7 @@ function syncAllStyleWithControls(element) {
     hunit.value != null ? document.getElementById('height').value = hunit.value : ""
     maxhunit.value != null ? document.getElementById('maxh').value = maxhunit.value : ""
     minhunit.value != null ? document.getElementById('minh').value = minhunit.value : ""
-
+    // border section
     let bw = GetUnit(element.style.borderWidth)
     let lbw = GetUnit(element.style.borderLeftWidth)
     let rbw = GetUnit(element.style.borderRightWidth)
@@ -86,6 +86,7 @@ function syncAllStyleWithControls(element) {
     element.style.borderBottomStyle ?  document.getElementById('bbstyle').value = element.style.borderBottomStyle : ""
     element.style.borderBottomColor ?  document.getElementById('bbcolor').value = element.style.borderBottomColor : ""
 
+    // padding section
     let p = GetUnit(element.style.padding), pl = GetUnit(element.style.paddingLeft), pt = GetUnit(element.style.paddingTop), pr = GetUnit(element.style.paddingRight), pb = GetUnit(element.style.paddingBottom)
 
     p.unit != "" ? document.getElementById('paddingUnit').value = p.unit : ""
@@ -98,7 +99,8 @@ function syncAllStyleWithControls(element) {
     pr.value != null ? document.getElementById('paddingr').value = pr.value : ""
     pb.unit != "" ? document.getElementById('pbunit').value = pb.unit : ""
     pb.value != null ? document.getElementById('paddingb').value = pb.value : ""
-    
+
+    // margin section
     let m = GetUnit(element.style.margin), ml = GetUnit(element.style.marginLeft), mt = GetUnit(element.style.marginTop), mr = GetUnit(element.style.marginRight), mb = GetUnit(element.style.marginBottom)
 
     m.unit != ""? document.getElementById('marginUnit').value = m.unit : ""
@@ -112,7 +114,8 @@ function syncAllStyleWithControls(element) {
     mb.unit != ""? document.getElementById('mbunit').value = mb.unit : ""
     mb.value !=  null ?  document.getElementById('marginb').value = mb.value :""
     
-
+    // box sizing 
+    element.style.boxSizing ? document.getElementById('boxsizing').value = element.style.boxSizing : ""
 }
 
 htmlInput.addEventListener('input', () => {
