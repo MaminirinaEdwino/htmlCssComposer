@@ -70,21 +70,21 @@ function syncAllStyleWithControls(element) {
 
     lbw.unit != "" ? document.getElementById('lbunit').value = lbw.unit : ""
     lbw.value != null ? document.getElementById('lb').value = lbw.value : ""
-    element.style.borderLeftStyle ?  document.getElementById('lbstyle').value = element.style.borderLeftStyle : ""
-    element.style.borderLeftColor ?  document.getElementById('lbcolor').value = element.style.borderLeftColor : ""
+    element.style.borderLeftStyle ? document.getElementById('lbstyle').value = element.style.borderLeftStyle : ""
+    element.style.borderLeftColor ? document.getElementById('lbcolor').value = element.style.borderLeftColor : ""
 
     rbw.unit != "" ? document.getElementById('rbunit').value = rbw.unit : ""
     rbw.value != null ? document.getElementById('rb').value = rbw.value : ""
-    element.style.borderRightStyle ?  document.getElementById('rbstyle').value = element.style.borderRightStyle : ""
-    element.style.borderRightColor ?  document.getElementById('rbcolor').value = element.style.borderRightColor : ""
+    element.style.borderRightStyle ? document.getElementById('rbstyle').value = element.style.borderRightStyle : ""
+    element.style.borderRightColor ? document.getElementById('rbcolor').value = element.style.borderRightColor : ""
     tbw.unit != "" ? document.getElementById('tbunit').value = tbw.unit : ""
     tbw.value != null ? document.getElementById('tb').value = tbw.value : ""
-    element.style.borderTopStyle ?  document.getElementById('tbstyle').value = element.style.borderTopStyle : ""
-    element.style.borderTopColor ?  document.getElementById('tbcolor').value = element.style.borderTopColor : ""
+    element.style.borderTopStyle ? document.getElementById('tbstyle').value = element.style.borderTopStyle : ""
+    element.style.borderTopColor ? document.getElementById('tbcolor').value = element.style.borderTopColor : ""
     bbw.unit != "" ? document.getElementById('bbunit').value = bbw.unit : ""
     bbw.value != null ? document.getElementById('bb').value = bbw.value : ""
-    element.style.borderBottomStyle ?  document.getElementById('bbstyle').value = element.style.borderBottomStyle : ""
-    element.style.borderBottomColor ?  document.getElementById('bbcolor').value = element.style.borderBottomColor : ""
+    element.style.borderBottomStyle ? document.getElementById('bbstyle').value = element.style.borderBottomStyle : ""
+    element.style.borderBottomColor ? document.getElementById('bbcolor').value = element.style.borderBottomColor : ""
 
     // padding section
     let p = GetUnit(element.style.padding), pl = GetUnit(element.style.paddingLeft), pt = GetUnit(element.style.paddingTop), pr = GetUnit(element.style.paddingRight), pb = GetUnit(element.style.paddingBottom)
@@ -103,17 +103,17 @@ function syncAllStyleWithControls(element) {
     // margin section
     let m = GetUnit(element.style.margin), ml = GetUnit(element.style.marginLeft), mt = GetUnit(element.style.marginTop), mr = GetUnit(element.style.marginRight), mb = GetUnit(element.style.marginBottom)
 
-    m.unit != ""? document.getElementById('marginUnit').value = m.unit : ""
-    m.value !=  null ?  document.getElementById('margin').value = m.value :""
-    ml.unit != ""? document.getElementById('mlunit').value = ml.unit : ""
-    ml.value !=  null ?  document.getElementById('marginl').value = ml.value :""
-    mt.unit != ""? document.getElementById('mtunit').value = mt.unit : ""
-    mt.value !=  null ?  document.getElementById('margint').value = mt.value :""
-    mr.unit != ""? document.getElementById('mrunit').value = mr.unit : ""
-    mr.value !=  null ?  document.getElementById('marginr').value = mr.value :""
-    mb.unit != ""? document.getElementById('mbunit').value = mb.unit : ""
-    mb.value !=  null ?  document.getElementById('marginb').value = mb.value :""
-    
+    m.unit != "" ? document.getElementById('marginUnit').value = m.unit : ""
+    m.value != null ? document.getElementById('margin').value = m.value : ""
+    ml.unit != "" ? document.getElementById('mlunit').value = ml.unit : ""
+    ml.value != null ? document.getElementById('marginl').value = ml.value : ""
+    mt.unit != "" ? document.getElementById('mtunit').value = mt.unit : ""
+    mt.value != null ? document.getElementById('margint').value = mt.value : ""
+    mr.unit != "" ? document.getElementById('mrunit').value = mr.unit : ""
+    mr.value != null ? document.getElementById('marginr').value = mr.value : ""
+    mb.unit != "" ? document.getElementById('mbunit').value = mb.unit : ""
+    mb.value != null ? document.getElementById('marginb').value = mb.value : ""
+
     // box sizing 
     element.style.boxSizing ? document.getElementById('boxsizing').value = element.style.boxSizing : ""
     // border radius section
@@ -132,21 +132,21 @@ function syncAllStyleWithControls(element) {
     element.style.flexDirection ? document.getElementById('flexdirection').value = element.style.flexDirection : ""
     element.style.justifyContent ? document.getElementById('justify-content').value = element.style.justifyContent : ""
     element.style.alignItems ? document.getElementById('align-items').value = element.style.alignItems : ""
-    gap.value != null ? document.getElementById('gap').value = gap.value :""
+    gap.value != null ? document.getElementById('gap').value = gap.value : ""
     element.style.flexWrap ? document.getElementById('flexwrap').value = element.style.flexWrap : ""
     // position section
     let posl = GetUnit(element.style.left), post = GetUnit(element.style.top), posr = GetUnit(element.style.right), posb = GetUnit(element.style.bottom)
     element.style.position ? document.getElementById("position").value = element.style.position : ""
-    posl.unit != ""? document.getElementById('poslunit').value = posl.unit : ""
-    post.unit != ""? document.getElementById('postunit').value = post.unit : ""
-    posr.unit != ""? document.getElementById('posrunit').value = posr.unit : ""
-    posb.unit != ""? document.getElementById('posbunit').value = posb.unit : ""
+    posl.unit != "" ? document.getElementById('poslunit').value = posl.unit : ""
+    post.unit != "" ? document.getElementById('postunit').value = post.unit : ""
+    posr.unit != "" ? document.getElementById('posrunit').value = posr.unit : ""
+    posb.unit != "" ? document.getElementById('posbunit').value = posb.unit : ""
     posl.value != null ? document.getElementById('posLeft').value = posl.value : ""
     post.value != null ? document.getElementById('posTop').value = post.value : ""
     posr.value != null ? document.getElementById('posRight').value = posr.value : ""
-    posb.value != null ? document.getElementById('posBottom').value  =posb.value : ""
+    posb.value != null ? document.getElementById('posBottom').value = posb.value : ""
+    element.style.zIndex ? document.getElementById('z-index').value = element.style.zIndex : ""
 
-    
 }
 
 htmlInput.addEventListener('input', () => {
@@ -246,10 +246,11 @@ function set_style(id) {
             document.getElementById('posrunit').value = document.getElementById(id).value
             document.getElementById('posbunit').value = document.getElementById(id).value
         }
+        id == "z-index" ? elementSelectionne.style.zIndex = document.getElementById(id).value : ""
         // overflow section
         id == "overflowx" ? elementSelectionne.style.overflowX = document.getElementById(id).value : "";
         id == "overflowy" ? elementSelectionne.style.overflowY = document.getElementById(id).value : "";
-        // console.log(document.getElementById(id));
+        // console.log(document.getElementById(id).style.z);
     }
     synchroniser();
 }
