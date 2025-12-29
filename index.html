@@ -7,7 +7,7 @@
     <title>Styler</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        
+
     </style>
 
 </head>
@@ -175,7 +175,8 @@
                     </div>
                     <div style="font-size: 12px; margin: 0rem; padding: 0px; flex-direction: column; display: flex; gap: 9px;"
                         id="style-id-23">
-                        <label for="" style="font-size: 12px; margin: 0rem; padding: 0px;" id="style-id-24">type</label>
+                        <label for="" style="font-size: 12px; margin: 0rem; padding: 0px;"
+                            id="style-id-24">style</label>
                         <select name="" id="bordertype"
                             style="padding: 5px; background-color: rgb(255, 255, 255); border-width: 0px;"
                             oninput="set_style('bordertype')">
@@ -199,6 +200,70 @@
                         <select name="" id="borderUnit"
                             style="padding: 5px; background-color: rgb(255, 255, 255); border-width: 0px; gap: 2px;"
                             oninput="set_style('borderUnit')">
+                            <option value="px">px</option>
+                            <option value="rem">rem</option>
+                            <option value="%">%</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">left b</label>
+                        <input type="number" id="lb" oninput="set_style('lb')">
+                        <input type="color" id="lbcolor" oninput="set_style('lbcolor')">
+                        <select name="" id="lbstyle" oninput="set_style('lbstyle')">
+                            <option value="solid" selected>solid</option>
+                            <option value="dashed">dashed</option>
+                            <option value="double">double</option>
+                            <option value="groove">groove</option>
+                        </select>
+                        <select name="" id="lbunit" oninput="set_style('lbunit')">
+                            <option value="px">px</option>
+                            <option value="rem">rem</option>
+                            <option value="%">%</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">right b</label>
+                        <input type="number" id="rb" oninput="set_style('rb')">
+                        <input type="color" id="rbcolor" oninput="set_style('rbcolor')">
+                        <select name="" id="rbstyle" oninput="set_style('rbstyle')">
+                            <option value="solid" selected>solid</option>
+                            <option value="dashed">dashed</option>
+                            <option value="double">double</option>
+                            <option value="groove">groove</option>
+                        </select>
+                        <select name="" id="rbunit" oninput="set_style('rbunit')">
+                            <option value="px">px</option>
+                            <option value="rem">rem</option>
+                            <option value="%">%</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">top b</label>
+                        <input type="number" id="tb" oninput="set_style('tb')">
+                        <input type="color" id="tbcolor" oninput="set_style('tbcolor')">
+                        <select name="" id="tbstyle" oninput="set_style('tbstyle')">
+                            <option value="solid" selected>solid</option>
+                            <option value="dashed">dashed</option>
+                            <option value="double">double</option>
+                            <option value="groove">groove</option>
+                        </select>
+                        <select name="" id="tbunit" oninput="set_style('tbunit')">
+                            <option value="px">px</option>
+                            <option value="rem">rem</option>
+                            <option value="%">%</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">bottom b</label>
+                        <select name="" id="bbstyle" oninput="set_style('bbstyle')">
+                            <option value="solid" selected>solid</option>
+                            <option value="dashed">dashed</option>
+                            <option value="double">double</option>
+                            <option value="groove">groove</option>
+                        </select>
+                        <input type="number" id="bb" oninput="set_style('bb')">
+                        <input type="color" id="bbcolor" oninput="set_style('bbcolor')">
+                        <select name="" id="bbunit">
                             <option value="px">px</option>
                             <option value="rem">rem</option>
                             <option value="%">%</option>

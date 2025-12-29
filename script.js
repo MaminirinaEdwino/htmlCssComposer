@@ -22,7 +22,7 @@ function syncAllStyleWithControls(element) {
     element.style.backgroundColor ? document.getElementById('bgColor').value = element.style.backgroundColor : ""
     element.style.textAlign ? document.getElementById('textAlign').value = element.style.textAlign : ""
     element.style.fontWeight ? document.getElementById('font-weight').value = element.style.fontWeight : ""
-    element.style.fontFamily ? document.getElementById('font-family').value = element.fontFamily : ""
+    element.style.fontFamily ? document.getElementById('font-family').value = element.style.fontFamily : ""
     let fontSize = null
     fontSize = GetUnit(element.style.fontSize)
     fontSize.value != null ? document.getElementById('fontSize').value = fontSize.value : ""
@@ -39,7 +39,7 @@ function syncAllStyleWithControls(element) {
     // element.style.width == "inherit" || element.style.width == "auto" || element.style.width == "fit-content" ? document.getElementById('spec_width').value = element.style.width : minhunit = GetUnit(element.style.fontSize)
 
     wunit.unit != '' ? document.getElementById('widthunit').value = wunit.unit : ""
-    wunit.value != null ? document.getElementById('width').value = wunit.value: ""
+    wunit.value != null ? document.getElementById('width').value = wunit.value : ""
     maxwunit.unit != '' ? document.getElementById('minwunit').value = maxwunit.unit : ""
     maxwunit.value != null ? document.getElementById('maxw').value = maxwunit.value : ""
     minwunit.unit != '' ? document.getElementById('minwunit').value = minwunit.unit : ""
@@ -47,15 +47,44 @@ function syncAllStyleWithControls(element) {
 
     let hunit = GetUnit(element.style.height);
     let maxhunit = GetUnit(element.style.maxHeight);
-    let minhunit = GetUnit(element.style.minHeight); 
+    let minhunit = GetUnit(element.style.minHeight);
 
-    hunit.unit!= ""? document.getElementById('heightunit').value = hunit.unit :""
+    hunit.unit != "" ? document.getElementById('heightunit').value = hunit.unit : ""
     maxhunit.unit != "" ? document.getElementById('maxhunit').value = maxhunit.unit : ""
     minhunit.unit != "" ? document.getElementById('minhunit').value = minhunit.unit : ""
 
     hunit.value != null ? document.getElementById('height').value = hunit.value : ""
-    maxhunit.value !=  null ? document.getElementById('maxh').value = maxhunit.value : ""
+    maxhunit.value != null ? document.getElementById('maxh').value = maxhunit.value : ""
     minhunit.value != null ? document.getElementById('minh').value = minhunit.value : ""
+
+    let bw = GetUnit(element.style.borderWidth)
+    let lbw = GetUnit(element.style.borderLeftWidth)
+    let rbw = GetUnit(element.style.borderRightWidth)
+    let tbw = GetUnit(element.style.borderTopWidth)
+    let bbw = GetUnit(element.style.borderBottomWidth)
+
+    bw.unit != "" ? document.getElementById('borderUnit').value = bw.unit : ""
+    bw.value != null ? document.getElementById('bordersize').value = bw.value : ""
+    element.style.borderStyle ? document.getElementById('bordertype').value = element.style.borderStyle : ""
+    element.style.borderColor ? document.getElementById('borderColor').value = element.style.borderColor : ""
+
+    lbw.unit != "" ? document.getElementById('lbunit').value = lbw.unit : ""
+    lbw.value != null ? document.getElementById('lb').value = lbw.value : ""
+    element.style.borderLeftStyle ?  document.getElementById('lbstyle').value = element.style.borderLeftStyle : ""
+    element.style.borderLeftColor ?  document.getElementById('lbcolor').value = element.style.borderLeftColor : ""
+
+    rbw.unit != "" ? document.getElementById('rbunit').value = rbw.unit : ""
+    rbw.value != null ? document.getElementById('rb').value = rbw.value : ""
+    element.style.borderRightStyle ?  document.getElementById('rbstyle').value = element.style.borderRightStyle : ""
+    element.style.borderRightColor ?  document.getElementById('rbcolor').value = element.style.borderRightColor : ""
+    tbw.unit != "" ? document.getElementById('tbunit').value = tbw.unit : ""
+    tbw.value != null ? document.getElementById('tb').value = tbw.value : ""
+    element.style.borderTopStyle ?  document.getElementById('tbstyle').value = element.style.borderTopStyle : ""
+    element.style.borderTopColor ?  document.getElementById('tbcolor').value = element.style.borderTopColor : ""
+    bbw.unit != "" ? document.getElementById('bbunit').value = bbw.unit : ""
+    bbw.value != null ? document.getElementById('bb').value = bbw.value : ""
+    element.style.borderBottomStyle ?  document.getElementById('bbstyle').value = element.style.borderBottomStyle : ""
+    element.style.borderBottomColor ?  document.getElementById('bbcolor').value = element.style.borderBottomColor : ""
 
 }
 
@@ -126,7 +155,20 @@ function set_style(id) {
         id == "bordersize" ? elementSelectionne.style.borderWidth = document.getElementById(id).value + document.getElementById('borderUnit').value : "";
         id == "bordertype" ? elementSelectionne.style.borderStyle = document.getElementById(id).value : "";
         id == "bordercolor" ? elementSelectionne.style.borderColor = document.getElementById(id).value : "";
-        // document.getElementById(id).style.flexWrap
+        id == "lb" ? elementSelectionne.style.borderLeftWidth = document.getElementById(id).value + document.getElementById('lbunit').value : ""
+        id == "rb" ? elementSelectionne.style.borderRightWidth = document.getElementById(id).value + document.getElementById('rbunit').value : ""
+        id == "tb" ? elementSelectionne.style.borderTopWidth = document.getElementById(id).value + document.getElementById('tbunit').value : ""
+        id == "bb" ? elementSelectionne.style.borderBottomWidth = document.getElementById(id).value + document.getElementById('bbunit').value : ""
+        id == "lbcolor" ? elementSelectionne.style.borderLeftColor = document.getElementById(id).value : ""
+        id == "rbcolor" ? elementSelectionne.style.borderRightColor = document.getElementById(id).value : ""
+        id == "tbcolor" ? elementSelectionne.style.borderTopColor = document.getElementById(id).value : ""
+        id == "bbcolor" ? elementSelectionne.style.borderBottomColor = document.getElementById(id).value : ""
+        id == "lbstyle" ? elementSelectionne.style.borderLeftStyle = document.getElementById(id).value : ""
+        id == "rbstyle" ? elementSelectionne.style.borderRightStyle = document.getElementById(id).value : ""
+        id == "tbstyle" ? elementSelectionne.style.borderTopStyle = document.getElementById(id).value : ""
+        id == "bbstyle" ? elementSelectionne.style.borderBottomStyle = document.getElementById(id).value : ""
+
+        // document.getElementById(id).style.borderLeftWidth
         // position section
         id == "position" ? elementSelectionne.style.position = document.getElementById(id).value + document.getElementById('posUnit').value : "";
         id == "posLeft" ? elementSelectionne.style.left = document.getElementById(id).value + document.getElementById('posUnit').value : "";
