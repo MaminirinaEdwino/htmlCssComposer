@@ -66,7 +66,7 @@ function syncAllStyleWithControls(element) {
     bw.unit != "" ? document.getElementById('borderUnit').value = bw.unit : ""
     bw.value != null ? document.getElementById('bordersize').value = bw.value : ""
     element.style.borderStyle ? document.getElementById('bordertype').value = element.style.borderStyle : ""
-    element.style.borderColor ? document.getElementById('borderColor').value = element.style.borderColor : ""
+    element.style.borderColor ? document.getElementById('bordercolor').value = element.style.borderColor : ""
 
     lbw.unit != "" ? document.getElementById('lbunit').value = lbw.unit : ""
     lbw.value != null ? document.getElementById('lb').value = lbw.value : ""
@@ -116,6 +116,14 @@ function syncAllStyleWithControls(element) {
     
     // box sizing 
     element.style.boxSizing ? document.getElementById('boxsizing').value = element.style.boxSizing : ""
+    // border radius section
+    let brbl = GetUnit(elementSelectionne.style.borderBottomLeftRadius), brbr = GetUnit(elementSelectionne.style.borderBottomRightRadius), brtl = GetUnit(elementSelectionne.style.borderTopLeftRadius), brtr = GetUnit(elementSelectionne.style.borderTopRightRadius)
+
+    console.log(brbl, brbr, brtl, brtr)
+    brbl.value != null ? document.getElementById('lbradius').value = brbl.value : ""
+    brbr.value != null ? document.getElementById('rbradius').value = brbr.value : ""
+    brtl.value != null ? document.getElementById('tbradius').value = brtl.value : ""
+    brtr.value != null ? document.getElementById('bbradius').value = brtr.value : ""
 }
 
 htmlInput.addEventListener('input', () => {
@@ -197,8 +205,12 @@ function set_style(id) {
         id == "rbstyle" ? elementSelectionne.style.borderRightStyle = document.getElementById(id).value : ""
         id == "tbstyle" ? elementSelectionne.style.borderTopStyle = document.getElementById(id).value : ""
         id == "bbstyle" ? elementSelectionne.style.borderBottomStyle = document.getElementById(id).value : ""
+        id == "lbradius" ? elementSelectionne.style.borderBottomLeftRadius = document.getElementById(id).value + "px" : ""
+        id == "rbradius" ? elementSelectionne.style.borderBottomRightRadius = document.getElementById(id).value + "px" : ""
+        id == "tbradius" ? elementSelectionne.style.borderTopLeftRadius = document.getElementById(id).value + "px" : ""
+        id == "bbradius" ? elementSelectionne.style.borderTopRightRadius = document.getElementById(id).value + "px" : ""
 
-        // document.getElementById(id).style.borderLeftWidth
+        document.getElementById(id).style.borderTop
         // position section
         id == "position" ? elementSelectionne.style.position = document.getElementById(id).value + document.getElementById('posUnit').value : "";
         id == "posLeft" ? elementSelectionne.style.left = document.getElementById(id).value + document.getElementById('posUnit').value : "";
@@ -336,6 +348,7 @@ function add_new_selector() {
 
 function selectSelector(index) {
     elementSelectionne = stylesheet.cssRules[index]
+    syncAllStyleWithControls(elementSelectionne)
     // console.log('qsdf')
 }
 
