@@ -146,6 +146,9 @@ function syncAllStyleWithControls(element) {
     posr.value != null ? document.getElementById('posRight').value = posr.value : ""
     posb.value != null ? document.getElementById('posBottom').value = posb.value : ""
     element.style.zIndex ? document.getElementById('z-index').value = element.style.zIndex : ""
+    // overflow section 
+    element.style.overflowX ? document.getElementById('overflowx').value = element.style.overflowX : ""
+    element.style.overflowY ? document.getElementById('overflowy').value = element.style.overflowY : ""
 
 }
 
