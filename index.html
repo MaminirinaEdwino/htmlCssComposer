@@ -17,7 +17,17 @@
 
     </div>
     <style id="style-tag">
+        .font-container {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            padding: 5px;
+        }
 
+        .font-container div {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
     <div style=" position: fixed; right: 1px; top: 1px; width: 300px; max-width: 300px; background-color: rgb(255, 255, 255); min-width: 0px; height: 95vh; max-height: 95vh; min-height: 0vh; border-color: rgb(98, 160, 234); border-width: 1px; border-style: solid; box-sizing: border-box; border-radius: 3.6px; padding: 5px 6px; margin: 7px; overflow-y: scroll; display: flex; flex-direction: column;"
         id="style-id-1">
@@ -57,19 +67,10 @@
 
             </div>
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between;" id="style-id-4">
-                <button id="getparent" onclick="getparent()"
-                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 9px 15px; font-size: 12px; margin: 3px;">Parent</button>
-                <button onclick="copyStyle()"
-                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 9px 15px; font-size: 12px; margin: 3px;"
-                    id="style-id-5">copy
-                    style</button>
-                <button onclick="pasteStyle()"
-                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 9px 15px; font-size: 12px; margin: 3px;"
-                    id="style-id-6">paste
-                    style</button>
-                <button id="exportCss"
-                    style="color: rgb(246, 245, 244); background-color: rgb(26, 95, 180); border-width: 0px; border-radius: 4px; padding: 9px 15px; font-size: 12px; margin: 3px;">Export
-                    CSS</button>
+                <button id="getparent" onclick="getparent()" class="tool-btn">Parent</button>
+                <button onclick="copyStyle()" class="tool-btn">copy style</button>
+                <button onclick="pasteStyle()" class="tool-btn">paste style</button>
+                <button id="exportCss" class="tool-btn">Export css</button>
             </div>
             <div style="display: flex; gap: 3px; padding: 4px; margin: 0rem; box-sizing: border-box; flex-direction: row; justify-content: space-around; flex-wrap: wrap;"
                 id="style-id-7">

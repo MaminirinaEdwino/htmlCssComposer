@@ -262,12 +262,17 @@ function set_style(id) {
 
 function getparent() {
     console.log("parent");
+    const tousLesElements = renderZone.querySelectorAll('*')
     if (elementSelectionne) {
         // document.getElementById('bgColor').style.position
 
         if (elementSelectionne && elementSelectionne.parent != renderZone) {
             let parent = elementSelectionne.parentElement
             elementSelectionne = parent
+            tousLesElements.forEach(item => {
+                item.style.outline = "2px solid transparent"
+            })
+            elementSelectionne.style.outline = "1px solid black"
         }
         synchroniser()
     }
@@ -275,8 +280,8 @@ function getparent() {
 
 function synchroniser() {
     if (targetName.innerText) {
-        targetName.innerText = "Cible : <" + elementSelectionne.tagName.toLocaleLowerCase() + ">"
-        htmlInput.value = renderZone.innerHTML
+        // targetName.innerText = "Cible : <" + elementSelectionne.tagName.toLocaleLowerCase() + ">"
+        // htmlInput.value = renderZone.innerHTML
     } else {
         document.getElementById('css-style').innerText = ""
         for (let index = 0; index < stylesheet.cssRules.length; index++) {

@@ -27,3 +27,10 @@
 .btn-choix-onglet:hover {
     background-color: rgb(98, 160, 234);
 }
+
+.tool-btn {
+    border-width: 0px;
+    padding: 2px;
+    color: rgb(53, 132, 228);
+    background-color: rgb(255, 243, 243);
+}
