@@ -4,36 +4,47 @@ const targetName = document.getElementById('targetName')
 let pressepapier = null
 let elementSelectionne = null
 
-function GetUnit(params)  {
+function GetUnit(params) {
     let match = params.match(/^(\d*\.?\d+)([a-zA-Z]+)?$/)
-    let valeur = null
+    let value = null
     let unit = ""
     if (match) {
-        valeur = parseFloat(match[1])
+        value = parseFloat(match[1])
         unit = match[2] || "";
     }
-    console.log(valeur, unit)
-    return {valeur, unit}
+    console.log(params, value, unit)
+    return { value, unit }
 }
 console.log(GetUnit("px"))
-function syncAllStyleWithControls(element){
+function syncAllStyleWithControls(element) {
     // text section
     element.style.color ? document.getElementById('textColor').value = element.style.color : ""
     element.style.backgroundColor ? document.getElementById('bgColor').value = element.style.backgroundColor : ""
-    element.style.textAlign ? document.getElementById('textAlign').value = element.style.textAlign :""
+    element.style.textAlign ? document.getElementById('textAlign').value = element.style.textAlign : ""
     element.style.fontWeight ? document.getElementById('font-weight').value = element.style.fontWeight : ""
-    element.style.fontFamily ?  document.getElementById('font-family').value = element.fontFamily : ""
+    element.style.fontFamily ? document.getElementById('font-family').value = element.fontFamily : ""
     let fontSize = null
-
-    element.style.width == "inherit" || element.style.width == "auto" || element.style.width == "fit-content" ? document.getElementById('spec_width').value = element.style.width : fontSize = GetUnit(element.style.fontSize)
-
+    fontSize = GetUnit(element.style.fontSize)
     fontSize.value != null ? document.getElementById('fontSize').value = fontSize.value : ""
-    fontSize.value != null ? document.getElementById('widthunit').value = fontSize.unit : ""
-    
 
     // width & height section
-    
-    
+    let wunit, maxwunit, minwunit = null
+
+    element.style.width == "inherit" || element.style.width == "auto" || element.style.width == "fit-content" ? document.getElementById('spec_width').value = element.style.width : wunit = GetUnit(element.style.width)
+    element.style.maxWidth == "inherit" || element.style.maxWidth == "auto" || element.style.maxWidth == "fit-content" ? document.getElementById('spec_width').value = element.style.maxWidth : maxwunit = GetUnit(element.style.maxWidth)
+    element.style.minWidth == "inherit" || element.style.minWidth == "auto" || element.style.minWidth == "fit-content" ? document.getElementById('spec_width').value = element.style.minWidth : minwunit = GetUnit(element.style.minWidth)
+
+    // element.style.height == "inherit" || element.style.height == "auto" || element.style.height == "fit-content" ? document.getElementById('spec_width').value = element.style.height : hunit = GetUnit(element.style.fontSize)
+    // element.style.width == "inherit" || element.style.width == "auto" || element.style.width == "fit-content" ? document.getElementById('spec_width').value = element.style.width : maxhunit = GetUnit(element.style.fontSize)
+    // element.style.width == "inherit" || element.style.width == "auto" || element.style.width == "fit-content" ? document.getElementById('spec_width').value = element.style.width : minhunit = GetUnit(element.style.fontSize)
+
+    wunit.unit != '' ? document.getElementById('widthunit').value = wunit.unit : ""
+    wunit.value != null ? document.getElementById('width').value = wunit.value: ""
+    maxwunit.unit != '' ? document.getElementById('minwunit').value = maxwunit.unit : ""
+    maxwunit.value != null ? document.getElementById('maxw').value = maxwunit.value : ""
+    minwunit.unit != '' ? document.getElementById('minwunit').value = minwunit.unit : ""
+    minwunit.value != null ? document.getElementById('minw').value = minwunit.value : ""
+
 }
 
 htmlInput.addEventListener('input', () => {
@@ -50,10 +61,11 @@ htmlInput.addEventListener('input', () => {
                 item.style.outline = "2px solid transparent"
             })
             el.style.outline = "1px solid black"
+            syncAllStyleWithControls(elementSelectionne)
         })
-        
+
     })
-    
+
 })
 
 
@@ -136,10 +148,10 @@ function synchroniser() {
     if (targetName.innerText) {
         targetName.innerText = "Cible : <" + elementSelectionne.tagName.toLocaleLowerCase() + ">"
         htmlInput.value = renderZone.innerHTML
-    }else{
+    } else {
         document.getElementById('css-style').innerText = ""
         for (let index = 0; index < stylesheet.cssRules.length; index++) {
-            document.getElementById('css-style').innerText +="\n"
+            document.getElementById('css-style').innerText += "\n"
             document.getElementById('css-style').innerText += stylesheet.cssRules[index].cssText
         }
     }
