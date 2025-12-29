@@ -99,6 +99,19 @@ function syncAllStyleWithControls(element) {
     pb.unit != "" ? document.getElementById('pbunit').value = pb.unit : ""
     pb.value != null ? document.getElementById('paddingb').value = pb.value : ""
     
+    let m = GetUnit(element.style.margin), ml = GetUnit(element.style.marginLeft), mt = GetUnit(element.style.marginTop), mr = GetUnit(element.style.marginRight), mb = GetUnit(element.style.marginBottom)
+
+    m.unit != ""? document.getElementById('marginUnit').value = m.unit : ""
+    m.value !=  null ?  document.getElementById('margin').value = m.value :""
+    ml.unit != ""? document.getElementById('mlunit').value = ml.unit : ""
+    ml.value !=  null ?  document.getElementById('marginl').value = ml.value :""
+    mt.unit != ""? document.getElementById('mtunit').value = mt.unit : ""
+    mt.value !=  null ?  document.getElementById('margint').value = mt.value :""
+    mr.unit != ""? document.getElementById('mrunit').value = mr.unit : ""
+    mr.value !=  null ?  document.getElementById('marginr').value = mr.value :""
+    mb.unit != ""? document.getElementById('mbunit').value = mb.unit : ""
+    mb.value !=  null ?  document.getElementById('marginb').value = mb.value :""
+    
 
 }
 
@@ -152,10 +165,10 @@ function set_style(id) {
         id == "flexwrap" ? elementSelectionne.style.flexWrap = document.getElementById(id).value : "";
         // margin section
         id == "margin" ? elementSelectionne.style.margin = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
-        id == "marginl" ? elementSelectionne.style.marginLeft = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
-        id == "margint" ? elementSelectionne.style.marginTop = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
-        id == "marginr" ? elementSelectionne.style.marginRight = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
-        id == "marginb" ? elementSelectionne.style.marginBottom = document.getElementById(id).value + document.getElementById('marginUnit').value : "";
+        id == "marginl" ? elementSelectionne.style.marginLeft = document.getElementById(id).value + document.getElementById('mlunit').value : "";
+        id == "margint" ? elementSelectionne.style.marginTop = document.getElementById(id).value + document.getElementById('mtunit').value : "";
+        id == "marginr" ? elementSelectionne.style.marginRight = document.getElementById(id).value + document.getElementById('mrunit').value : "";
+        id == "marginb" ? elementSelectionne.style.marginBottom = document.getElementById(id).value + document.getElementById('mbunit').value : "";
         // padding section
         id == "padding" ? elementSelectionne.style.padding = document.getElementById(id).value + document.getElementById('paddingUnit').value : "";
         id == "paddingl" ? elementSelectionne.style.paddingLeft = document.getElementById(id).value + document.getElementById('plunit').value : "";
