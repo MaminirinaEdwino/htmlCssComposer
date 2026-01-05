@@ -278,17 +278,19 @@ function getparent() {
     }
 }
 
+
 function synchroniser() {
     if (targetName.innerText) {
-        // targetName.innerText = "Cible : <" + elementSelectionne.tagName.toLocaleLowerCase() + ">"
-        // htmlInput.value = renderZone.innerHTML
-    } else {
-        document.getElementById('css-style').innerText = ""
-        for (let index = 0; index < stylesheet.cssRules.length; index++) {
-            document.getElementById('css-style').innerText += "\n"
-            document.getElementById('css-style').innerText += stylesheet.cssRules[index].cssText
-        }
+        targetName.innerText = "Cible : <" + elementSelectionne.tagName + ">"
+        htmlInput.value = renderZone.innerHTML
     }
+
+    document.getElementById('css-style').innerText = ""
+    for (let index = 0; index < stylesheet.cssRules.length; index++) {
+        document.getElementById('css-style').innerText += "\n"
+        document.getElementById('css-style').innerText += stylesheet.cssRules[index].cssText
+    }
+
 }
 
 // let clone = null
